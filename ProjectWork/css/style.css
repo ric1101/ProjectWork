@@ -102,13 +102,22 @@ h1, h2, h3 {
     background-color: #004d00;
     border-color: #004d00;
 }
-.fixed-button {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    z-index: 1000;
+
+.btn-ritorna{
+  align-items: left;
 }
-
-
-  
+a {
+  text-decoration: none;
+}
+#showPassword{
+  position: absolute;
+  top: 43px;
+  right: 14px;
+}
+  .dividiFoot{
+    margin: 0;
+    border: solid 5px ;
+    border-color:  #FFCC00
+   
+  }
   
