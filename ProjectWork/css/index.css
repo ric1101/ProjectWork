@@ -1,0 +1,160 @@
+
+.d-flex-center-wrap {
+    display: flex;
+    justify-content: center; /* Distribuisce gli elementi con spazi uguali */
+    flex-wrap: wrap; /* Permette agli elementi di andare a capo se non c'è abbastanza spazio */
+  }
+  @media screen and ( max-width: 768px){ 
+
+    .d-flex-center-wrap{
+        justify-content: center;
+    }
+
+    
+  }
+  
+
+  a {
+    text-decoration: none;
+  }
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #F5F5F5;
+}
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.section-title {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #212529;
+}
+
+.carousel-item {
+    height: calc(100vh - 80px);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    max-width: 100%;
+    
+}
+.carousel-indicator{
+    background-color: #212529;
+}
+.cerchio {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: rgba(166, 159, 159, 0.277);
+    text-align: center;
+    position: relative;
+  }
+  
+  .cerchio img {
+    height: 70px;
+    width: 70px;
+    object-fit: cover;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+  }
+  
+  .cerchio:hover {
+    cursor: pointer;
+  }
+  
+  .cerchio:hover img {
+    filter: grayscale(0%) !important;
+  }
+  
+  
+  .grayscale {
+    filter: grayscale(100%);
+  }
+  
+  .no-grayscale {
+    filter: grayscale(0%);
+  }
+
+  .btn-login {
+    background-color: yellow;
+    color: black; /* Per il contrasto */
+    border-color: yellow;
+}
+
+.btn-registrazione {
+    background-color: green;
+    color: white; /* Per il contrasto */
+    border-color: green;
+}
+
+/* Assicurati che l'effetto "hover" mantenga i colori */
+.btn-login:hover {
+    background-color: #e6e600;
+    border-color: #e6e600;
+}
+
+.btn-registrazione:hover {
+    background-color: #004d00;
+    border-color: #004d00;
+}
+.fixed-button {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+}
+
+.container-video {
+  width: auto;
+  flex-direction: column;
+  
+  background: linear-gradient(90deg, #009942ab 0%, #96e600 52%, #FFCC00 100%);
+}
+  
+.video {
+  height: auto;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+.video video {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+}
+
+
+.testo-video {
+  font-size: x-large;
+  flex: 1;
+}
+
+.testo-video p {
+  font-size: large;
+}
+
+@media screen and (min-width: 991px) {
+  .container-video {
+    flex-direction: row;
+  }
+}
+
+
+.swiper-slide {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 87vh;
+  
+  display: flex;
+  align-items: end;
+}

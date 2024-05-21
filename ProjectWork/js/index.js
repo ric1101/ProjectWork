@@ -1,28 +1,17 @@
-let bottoniFiltro = document.querySelectorAll(".filtro");
-
-bottoniFiltro.forEach(bottone => {
-  bottone.addEventListener("click", function () {
-
-    bottoniFiltro.forEach(btn => {
-      if (btn !== this) {
-        btn.classList.remove("active");
-      }
-
-    });
-
-    this.classList.add("active")
-
-
-    let immaginiFiltri = document.querySelectorAll(".immagineFiltro");
-    immaginiFiltri.forEach(immagine => {
-      immagine.classList.add("grayscale")
-    });
-
-    let immagineCorrente = this.querySelector(".immagineFiltro");
-    immagineCorrente.classList.remove("grayscale")
-
-
-
-  })
+var swiper = new Swiper(".mySwiper", {
+  slidesPerView: 1,
+  freeMode: true,
+  loop: true,
+  autoplay: {
+    enable: true,
+    delay: 3000
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
 });
-
