@@ -1,0 +1,56 @@
+.categoria {
+    /* position: absolute; */
+    bottom: 10px;
+    right: 10px;
+    font-size: 0.8em;
+    text-align: end;
+    padding: 5px;
+  }
+  
+  .indirizzo {
+    /* position: absolute; */
+    bottom: 10px;
+    left: 10px;
+    font-size: 0.8em;
+    margin: 0;
+    padding: 5px;
+    border: none;
+    background: none;
+  
+  }
+  
+  .disponibile {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 0.8em;
+  
+    background-color: rgba(255, 255, 255, 0.7);
+    
+    padding: 2px 5px;
+    border-radius: 3px;
+  }
+  
+  .card-body {
+    /* text-align: center; */
+    padding-bottom: 0px !important;
+  
+  }
+  
+  .card-title-link {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .card{
+    padding: 0px !important;
+  }
+  
+  
+  a {
+    text-decoration: none;
+  }
+  
+  .scurita{
+    filter: grayscale(100%);
+  }

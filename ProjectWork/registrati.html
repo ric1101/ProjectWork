@@ -62,13 +62,28 @@
                         <div class="card shadow-2-strong" style="border-radius: 1rem;">
                             <div class="card-body p-5 ">
 
-                                <h3 class="mb-5 text-center"><i class="fa-solid fa-truck"></i> Accedi a TruckwaY </h3>
+                                <h3 class="mb-5 text-center"><i class="fa-solid fa-truck"></i> Registrati a TruckwaY
+                                </h3>
 
 
                                 <div class="mb-3">
-                                    <label for="username" class="form-label">Username</label>
-                                    <input type="text" class="form-control" id="username" aria-describedby="emailHelp">
-                                    <p class="text-danger" id="usernameError"></p>
+                                    <label for="Nome" class="form-label">Nome</label>
+                                    <input type="text" class="form-control" id="nome">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="cognome" class="form-label">Cognome</label>
+                                    <input type="text" class="form-control" id="cognome">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="data-nascita" class="form-label">Data di nascita</label>
+                                    <input type="date" class="form-control" id="data-nascita">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
                                 </div>
 
                                 <div class="mb-3">
@@ -78,33 +93,14 @@
                                         <label for="password" class="form-label">Password</label>
                                         <input type="password" class="form-control" id="password">
                                         <i class="fa-regular fa-eye  " id="showPassword"></i>
-
-
                                     </div>
 
-                                    <ul id="listaErrori" class="text-danger"></ul>
-
                                 </div>
-
-
-                                <!-- Checkbox -->
-                                <!--  <div class="form-check d-flex justify-content-start mb-4">
-                                <input class="form-check-input" type="checkbox" value="" id="form1Example3" />
-                                <label class="form-check-label" for="form1Example3"> Remember password </label>
-                            </div>
-                            <button  id="register" type="submit" class="btn  d-block ms-auto "style="height:2.5rem;background: #1e90ff;color: whitesmoke;">Registrati</button>
-                            <br>
-                            <button  id="accedi" type="submit" class="btn  d-block ms-auto "style="height:2.5rem;background: #1e90ff;color: whitesmoke;">Accedi</button> -->
 
                                 <button data-mdb-button-init data-mdb-ripple-init
                                     class="btn btn-primary btn-lg btn-block btn-login " type="submit"
-                                    style="width: 90px;" id="login">Login</button>
+                                    style="width: 150px;" id="login">Registrati</button>
 
-                                <hr class="my-4">
-                                <div class="d-flex justify-content-end">
-                                <a href="./registrati.html" class="registrazione" id="registrazione">Registrati
-                                    ora!</a>
-                                </div>
 
 
 
@@ -216,7 +212,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <script src="./js/login.js"></script>
+    <script src="./js/registrati.js"></script>
 
 </body>
 
