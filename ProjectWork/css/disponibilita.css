@@ -50,3 +50,7 @@
 a {
   text-decoration: none;
 }
+
+.scurita{
+  filter: grayscale(100%);
+}
