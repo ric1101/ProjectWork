@@ -28,13 +28,13 @@
                 <div class="collapse navbar-collapse justify-content-end p-3" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                            <a class="nav-link" aria-current="page" href="./index.html">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="./trucks.html">Trucks</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./login.html">Login</a>
+                            <a class="nav-link active" href="./login.html">Login</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="./carrello.html"><i class="fa-solid fa-cart-shopping"></i>
@@ -49,14 +49,9 @@
         </nav>
     </header>
 
-
-
     <section style="background-color: #009942ab;">
-        <form>
+        <form class="needs-validation" novalidate action="#!">
             <div class="container py-5 h-100">
-                <!-- <div class=" mt-3">
-                <a href="index.html" class="btn btn-secondary btn-lg btn-ritorna">Torna al Menu Principale</a>
-            </div> -->
                 <div class="row d-flex justify-content-center align-items-center h-100">
                     <div class="col-12 col-md-8 col-lg-6 col-xl-5">
                         <div class="card shadow-2-strong" style="border-radius: 1rem;">
@@ -65,45 +60,61 @@
                                 <h3 class="mb-5 text-center"><i class="fa-solid fa-truck"></i> Registrati a TruckwaY
                                 </h3>
 
-
                                 <div class="mb-3">
-                                    <label for="Nome" class="form-label">Nome</label>
-                                    <input type="text" class="form-control" id="nome">
+
+                                    <label for="nome" class="form-label">Nome</label>
+                                    <input type="text" class="form-control richiesti" id="nome" placeholder="Nome"
+                                        aria-label="Nome" maxLength="50" required>
+                                    <div class="invalid-feedback">
+                                        Nome richiesto
+                                    </div>
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="cognome" class="form-label">Cognome</label>
-                                    <input type="text" class="form-control" id="cognome">
+                                    <input type="text" class="form-control richiesti" id="cognome" placeholder="Cognome"
+                                        aria-label="Cognome" maxLength="40" required>
+                                    <div class="invalid-feedback">
+                                        Cognome richiesto
+                                    </div>
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="data-nascita" class="form-label">Data di nascita</label>
-                                    <input type="date" class="form-control" id="data-nascita">
+                                    <label for="data_nascita" class="form-label">Data di nascita</label>
+                                    <input type="date" class="form-control richiesti" id="data_nascita" required>
+                                    <div class="invalid-feedback">
+                                        Data di nascita richiesta
+                                    </div>
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Email</label>
-                                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                                    <input type="email" class="form-control richiesti" id="email" required>
+                                    <div class="invalid-feedback">
+                                        Email richiesta
+                                    </div>
                                 </div>
 
                                 <div class="mb-3">
 
-
                                     <div class="position-relative">
                                         <label for="password" class="form-label">Password</label>
                                         <input type="password" class="form-control" id="password">
-                                        <i class="fa-regular fa-eye  " id="showPassword"></i>
+                                        <div class="invalid-feedback">
+                                            Password richiesta
+                                        </div>
+                                        <i class="fa-regular fa-eye" id="showPassword"></i>
                                     </div>
-
+                                    <ul id="listaErrori" class="text-danger"></ul>
+                                    
                                 </div>
 
                                 <button data-mdb-button-init data-mdb-ripple-init
-                                    class="btn btn-primary btn-lg btn-block btn-login " type="submit"
-                                    style="width: 150px;" id="login">Registrati</button>
-
-
-
-
+                                    class="btn btn-lg btn-block btn-login " type="submit"
+                                    style="width: 150px;" id="login">Registrati
+                                </button>
+                                <p class="success mt-2 d-none">Dati inviati correttamente!</p>
+                                <p class="fail mt-2 d-none">Dati non inviati</p>
                             </div>
                         </div>
                     </div>
