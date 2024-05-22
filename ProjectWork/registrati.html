@@ -63,8 +63,8 @@
                                 <div class="mb-3">
 
                                     <label for="nome" class="form-label">Nome</label>
-                                    <input type="text" class="form-control richiesti" id="nome" placeholder="Nome"
-                                        aria-label="Nome" maxLength="50" required>
+                                    <input type="text" class="form-control richiesti" id="nome" 
+                                    aria-label="Nome" maxLength="50" required>
                                     <div class="invalid-feedback">
                                         Nome richiesto
                                     </div>
@@ -72,8 +72,7 @@
 
                                 <div class="mb-3">
                                     <label for="cognome" class="form-label">Cognome</label>
-                                    <input type="text" class="form-control richiesti" id="cognome" placeholder="Cognome"
-                                        aria-label="Cognome" maxLength="40" required>
+                                    <input type="text" class="form-control richiesti" id="cognome" aria-label="Cognome" maxLength="40" required>
                                     <div class="invalid-feedback">
                                         Cognome richiesto
                                     </div>
@@ -95,26 +94,25 @@
                                     </div>
                                 </div>
 
-                                <div class="mb-3">
+                                <div class="mb-3 password">
 
                                     <div class="position-relative">
                                         <label for="password" class="form-label">Password</label>
-                                        <input type="password" class="form-control" id="password">
+                                        <input type="password" class="form-control richiesti" id="password" required>
                                         <div class="invalid-feedback">
                                             Password richiesta
                                         </div>
-                                        <i class="fa-regular fa-eye" id="showPassword"></i>
+                                        <i class="fa-regular fa-eye" id="showPassword" style="right: 14px;"></i>
                                     </div>
                                     <ul id="listaErrori" class="text-danger"></ul>
                                     
                                 </div>
 
                                 <button data-mdb-button-init data-mdb-ripple-init
-                                    class="btn btn-lg btn-block btn-login " type="submit"
+                                    class="btn btn-lg btn-block btn-login" type="submit"
                                     style="width: 150px;" id="login">Registrati
                                 </button>
-                                <p class="success mt-2 d-none">Dati inviati correttamente!</p>
-                                <p class="fail mt-2 d-none">Dati non inviati</p>
+                                <p class="inviato mt-2"></p>
                             </div>
                         </div>
                     </div>
