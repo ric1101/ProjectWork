@@ -31,8 +31,8 @@ function popolaDisponibilita() {
             <a href="truck.html" class="card-title-link col-12">
               <h5 class="card-title text-center">${element.nome}</h5>
             </a>
-            <div class="indirizzo ms-auto col-6">${element.indirizzo}</div>
-            <div class=" categoria  ms-auto col-6">categoria</div>
+            <div class="indirizzo ms-auto col-8">${element.indirizzo}</div>
+            <div class=" categoria  ms-auto col-4">categoria</div>
           </div>
         </div>`;
 
@@ -52,8 +52,8 @@ function popolaDisponibilita() {
            
               <h5 class="card-title text-center col-12">${element.nome}</h5>
            
-            <div class="indirizzo ms-auto col-6">${element.indirizzo}</div>
-            <div class=" categoria  ms-auto col-6">categoria</div>
+            <div class="indirizzo ms-auto col-8">${element.indirizzo}</div>
+            <div class=" categoria  ms-auto col-4">categoria</div>
           </div>
         </div>`;
 
