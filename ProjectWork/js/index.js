@@ -15,3 +15,24 @@ var swiper = new Swiper(".mySwiper", {
     prevEl: ".swiper-button-prev",
   },
 });
+
+
+
+
+function inviaPaginaDisponibilita() {
+
+  let filtri = document.querySelectorAll('.filtro');
+  console.log(filtri);
+  filtri.forEach(btn => {
+      btn.addEventListener('click', function () {
+          const id = btn.getAttribute('data-id');
+          const nome = btn.getAttribute('data-nome');
+          console.log(id);
+          console.log(nome);
+          localStorage.setItem('id', JSON.stringify(id));
+          localStorage.setItem('nome', JSON.stringify(nome));
+          window.location.href = 'disponibilita.html';
+      });
+  });
+}
+inviaPaginaDisponibilita();

@@ -67,9 +67,6 @@ function passwordCheck() {
                                <li>Almeno un carattere speciale (!,?,@)</li>
                                `;
 
-    
-     
-
     //  form.classList.remove('was-validated');
     return false;
   } else {
@@ -118,11 +115,6 @@ btn_login.addEventListener("click", function () {
     nome.value != ""
   ) {
     inviato.innerHTML = "Dati inviati correttamente";
-    nome.value = "";
-    cognome.value = "";
-    data_nascita.value = "";
-    email.value = "";
-    password.value = "";
 
     // form.classList.add("was-validated");
     registrazione();
