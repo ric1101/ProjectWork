@@ -10,7 +10,7 @@ function popolaDisponibilita() {
   fetch(URLT)
     .then(res => res.json())
     .then(data => {
-      stampa(data /*, data.marchio.nome, data.marchio.genere*/);
+      stampa(data);
       console.log(data);
     })
 
@@ -18,12 +18,15 @@ function popolaDisponibilita() {
 popolaDisponibilita();
 
 
-function stampa(array/*, marchio, genere*/) {
-//   let marchio1 = marchio;
-//   let genere1 = genere;
-  array.forEach(element => {
+function stampa(array) {
+  array.forEach(marchio => {
+    
+      let marchio1 = marchio.nome;
+      let genere1 = marchio.genere;
+
+ marchio.foodtrucks.forEach(element => {
     if (element.disponibilità == true) {
-      all.innerHTML += `<div class="card m-4 col-lg-3 col-md-4 col-sm-6 mb-4">
+      all.innerHTML += `<div class="card m-4 col-lg-3 col-md-4 col-sm-6 mb-4" data-id="${element.id}">
   <div class="card-body  p-0 ">
   <div class="box-image" style="height: 100%;">
           
@@ -35,17 +38,15 @@ function stampa(array/*, marchio, genere*/) {
   </li>
   </ul>
   <div class="card-body row">
-  <a href="truck.html" class="card-title-link col-12">
     <h5 class="card-title text-center">${element.nome}</h5>
-  </a>
   <div class="indirizzo ms-auto col-8">${element.indirizzo}</div>
-  <div class=" categoria  ms-auto col-4"></div>
-  <div class=" categoria  ms-auto col-4"></div>
+  <div class=" categoria  ms-auto col-4">${marchio1}</div>
+  <div class=" categoria  ms-auto col-4">${genere1}</div>
   </div>
   </div>`;
 
     } else {
-      all.innerHTML += `<div class="card m-4 col-lg-3 col-md-4 col-sm-6 mb-4">
+      all.innerHTML += `<div class="card m-4 col-lg-3 col-md-4 col-sm-6 mb-4" data-id="${element.id}">
   <div class="card-body  p-0 ">
   <div class="box-image" style="height: 100%;">
 
@@ -57,16 +58,34 @@ function stampa(array/*, marchio, genere*/) {
   </li>
   </ul>
   <div class="card-body row ">
-
     <h5 class="card-title text-center col-12">${element.nome}</h5>
-
   <div class="indirizzo ms-auto col-8">${element.indirizzo}</div>
-  <div class=" categoria  ms-auto col-4"></div>
-  <div class=" categoria  ms-auto col-4"></div>
+  <div class=" categoria  ms-auto col-4">${marchio1}</div>
+  <div class=" categoria  ms-auto col-4">${genere1}</div>
   </div>
   </div>`;
 
     }
 
   });
+});
+inviaAlDettaglioTruck();
+}
+
+
+function inviaAlDettaglioTruck() {
+  let card = document.querySelectorAll('.card');
+  console.log(card);
+  card.forEach(btn => {
+    btn.addEventListener('click', function(){
+      let id = btn.getAttribute('data-id');
+        console.log(id);
+
+        localStorage.setItem('id-truck', id);
+        window.location.href = 'truck.html';
+      })
+
+    
+  });
+
 }
