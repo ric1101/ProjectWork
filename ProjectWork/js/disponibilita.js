@@ -14,8 +14,8 @@ function popolaDisponibilita() {
   fetch(URLT)
   .then(res => res.json())
   .then(data => {
-    stampa(data.trucks, data.marchio.nome, data.marchio.genere);
     console.log(data);
+    stampa(data.marchio.foodtrucks, data.marchio.nome, data.marchio.genere);
   })
   
 }

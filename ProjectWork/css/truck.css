@@ -117,3 +117,23 @@ a {
 .container-truck {
     flex: 1;
 }
+
+#map { height: 100%; }
+
+
+@media screen and (max-width: 1048px) {
+    
+    .card-body p {
+        font-size: 1rem;
+    }
+
+
+
+}
+
+@media screen and (max-width: 1048px) {
+    
+    .card-body p {
+        font-size: 1.3rem;
+    }
+}
