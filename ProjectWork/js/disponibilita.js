@@ -91,6 +91,10 @@ function inviaAlDettaglioTruck() {
 
 }
 
+let arrayCarrello = [];
+let numeroArticoli = document.querySelector('#numeroArticoli');
+let numProdotti = 0;
+
 function contoCarrello() {
   console.log(numProdotti);
 

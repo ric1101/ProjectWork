@@ -359,27 +359,31 @@ function inviaAlCarrello() {
       arrayId.push(id);
       console.log(arrayId);
       localStorage.setItem('arrayId', JSON.stringify(arrayId));
-      // contoCarrello();
+      contoCarrello();
 
     });
 
   });
 }
 
-// function contoCarrello() {
-//   console.log(numProdotti);
+let arrayCarrello = [];
+let numeroArticoli = document.querySelector('#numeroArticoli');
+let numProdotti = 0;
 
-//   arrayCarrello = JSON.parse(localStorage.getItem('arrayId'));
+function contoCarrello() {
+  console.log(numProdotti);
 
-//   numProdotti = arrayCarrello.length;
-//   numeroArticoli.innerHTML = numProdotti;
+  arrayCarrello = JSON.parse(localStorage.getItem('arrayId'));
 
-//   if (numProdotti == 0) {
-//       numeroArticoli.innerHTML = null;
-//   }
+  numProdotti = arrayCarrello.length;
+  numeroArticoli.innerHTML = numProdotti;
 
-// }
-// contoCarrello();
+  if (numProdotti == 0) {
+      numeroArticoli.innerHTML = null;
+  }
+
+}
+contoCarrello();
 
 function descrizioneBreve() {
 

@@ -1,5 +1,6 @@
 const URLT = 'http://localhost:8080/api/foodtrucks';
 
+
 let all = document.querySelector('.all');
 let marchio = document.querySelector('.marchio');
 const URLMARCHI = 'http://localhost:8080/api/marchi';
@@ -85,10 +86,14 @@ function inviaAlDettaglioTruck() {
         window.location.href = 'truck.html';
       })
 
-    
-  });
+      
+    });
+  }
+  
 
-}
+let arrayCarrello = [];
+let numeroArticoli = document.querySelector('#numeroArticoli');
+let numProdotti = 0;
 
 function contoCarrello() {
   console.log(numProdotti);
