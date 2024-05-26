@@ -13,7 +13,7 @@ function popolaDisponibilita() {
       stampa(data);
       console.log(data);
     })
-
+    
 }
 popolaDisponibilita();
 
@@ -44,7 +44,7 @@ function stampa(array) {
   <div class=" categoria  ms-auto col-4">${genere1}</div>
   </div>
   </div>`;
-
+      
     } else {
       all.innerHTML += `<div class="card m-4 col-lg-3 col-md-4 col-sm-6 mb-4" data-id="${element.id}">
   <div class="card-body  p-0 ">

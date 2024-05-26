@@ -338,6 +338,7 @@ function stampaTruck(piatti) {
                </div>`;
     }
   });
+  descrizioneBreve()
   inviaAlCarrello();
 }
 
@@ -365,17 +366,34 @@ function inviaAlCarrello() {
   });
 }
 
-function contoCarrello() {
-  console.log(numProdotti);
+// function contoCarrello() {
+//   console.log(numProdotti);
 
-  arrayCarrello = JSON.parse(localStorage.getItem('arrayId'));
+//   arrayCarrello = JSON.parse(localStorage.getItem('arrayId'));
 
-  numProdotti = arrayCarrello.length;
-  numeroArticoli.innerHTML = numProdotti;
+//   numProdotti = arrayCarrello.length;
+//   numeroArticoli.innerHTML = numProdotti;
 
-  if (numProdotti == 0) {
-      numeroArticoli.innerHTML = null;
-  }
+//   if (numProdotti == 0) {
+//       numeroArticoli.innerHTML = null;
+//   }
+
+// }
+// contoCarrello();
+
+function descrizioneBreve() {
+  
+  let cardText = document.querySelectorAll('.card-text');
+  cardText.forEach(desc => {
+    console.log(cardText);
+    let descrizione = desc.textContent.trim();
+    if(descrizione.length > 30) {
+      console.log(descrizione.length);
+      desc.textContent = descrizione.substring(0, 30);
+      desc.textContent += '...';
+      console.log(desc.textContent);
+    }
+
+  });
 
 }
-contoCarrello();
