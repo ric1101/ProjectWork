@@ -41,3 +41,18 @@ let getIdUtente = localStorage.getItem('idUtente');
 if (getIdUtente != null) {
   
 }
+
+function contoCarrello() {
+  console.log(numProdotti);
+
+  arrayCarrello = JSON.parse(localStorage.getItem('arrayId'));
+
+  numProdotti = arrayCarrello.length;
+  numeroArticoli.innerHTML = numProdotti;
+
+  if (numProdotti == 0) {
+      numeroArticoli.innerHTML = null;
+  }
+
+}
+contoCarrello();
