@@ -38,7 +38,7 @@ h1, h2, h3 {
     height: calc(100vh - 80px);
     background-position: center;
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     max-width: 100%;
     
 }

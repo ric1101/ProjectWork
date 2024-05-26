@@ -52,7 +52,7 @@
 
 
     <section style="background-color: #009942ab;">
-        <form>
+        <form action="#!">
             <div class="container py-5 h-100">
                 <!-- <div class=" mt-3">
                 <a href="index.html" class="btn btn-secondary btn-lg btn-ritorna">Torna al Menu Principale</a>
@@ -66,40 +66,21 @@
 
 
                                 <div class="mb-3">
-                                    <label for="username" class="form-label">Username</label>
-                                    <input type="text" class="form-control" id="username" aria-describedby="emailHelp">
-                                    <p class="text-danger" id="usernameError"></p>
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="text" class="form-control" id="email" aria-describedby="emailHelp">
                                 </div>
-
                                 <div class="mb-3">
-
-
                                     <div class="position-relative">
                                         <label for="password" class="form-label">Password</label>
                                         <input type="password" class="form-control" id="password">
                                         <i class="fa-regular fa-eye" id="showPassword" style="right: 14px;"></i>
-
-
                                     </div>
-
-                                    <ul id="listaErrori" class="text-danger"></ul>
-
                                 </div>
-
-
-                                <!-- Checkbox -->
-                                <!--  <div class="form-check d-flex justify-content-start mb-4">
-                                <input class="form-check-input" type="checkbox" value="" id="form1Example3" />
-                                <label class="form-check-label" for="form1Example3"> Remember password </label>
-                            </div>
-                            <button  id="register" type="submit" class="btn  d-block ms-auto "style="height:2.5rem;background: #1e90ff;color: whitesmoke;">Registrati</button>
-                            <br>
-                            <button  id="accedi" type="submit" class="btn  d-block ms-auto "style="height:2.5rem;background: #1e90ff;color: whitesmoke;">Accedi</button> -->
-
+                                
                                 <button data-mdb-button-init data-mdb-ripple-init
                                     class="btn btn-lg btn-block btn-login " type="submit"
                                     style="width: 90px;" id="login">Login</button>
-
+                                <p class="errore text-danger mt-2"></p>
                                 <hr class="my-4">
                                 <div class="d-flex justify-content-end">
                                     <a href="./registrati.html" class="registrazione" id="registrazione">Registrati
