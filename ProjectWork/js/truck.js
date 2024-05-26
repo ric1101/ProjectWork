@@ -166,22 +166,22 @@ function stampaTruck(piatti) {
 
     if (portata === "SNACK" && snack >= 1) {
         let snackDiv = document.querySelector(".snack");
-        snackDiv.innerHTML += `<div class="col-md-3 mt-4">
-        <div class="card-sl">
-        <div class="card-image">
-        <img src="${element.immagine}" />
-        </div>
-        <div class="card-heading">
-        ${element.nome}
-        </div>
-        <div class="card-text">
-        ${element.descrizione}
-        </div>
-        <div class="card-text">
-        ${element.prezzoListino}
-        </div>
-        <a href="#" class="card-button"> Acquista</a>
-        </div>
+          snackDiv.innerHTML += `<div class="col-md-3 mt-4">
+          <div class="card-sl">
+              <div class="card-image">
+                  <img src="${element.immagine}" />
+              </div>
+              <div class="card-heading">
+                  ${element.nome}
+              </div>
+              <div class="card-text">
+              ${element.descrizione}
+              </div>
+              <div class="card-text">
+              ${element.prezzoListino}
+            </div>
+                <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
+            </div>
         </div>`;
        
     } else if (portata === "PANINO" && panino >= 1) {
@@ -200,7 +200,7 @@ function stampaTruck(piatti) {
                      <div class="card-text">
                      ${element.prezzoListino}
                    </div>
-                       <a href="#" class="card-button"> Acquista</a>
+                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
                    </div>
                </div>`;
     } else if (portata === "BEVANDA" && bevanda >= 1) {
@@ -219,7 +219,7 @@ function stampaTruck(piatti) {
                      <div class="card-text">
                      ${element.prezzoListino}
                    </div>
-                       <a href="#" class="card-button"> Acquista</a>
+                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
                    </div>
                </div>`;
     } else if (portata === "DOLCE" && dolce >= 1) {
@@ -238,7 +238,7 @@ function stampaTruck(piatti) {
                      <div class="card-text">
                      ${element.prezzoListino}
                    </div>
-                       <a href="#" class="card-button"> Acquista</a>
+                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
                    </div>
                </div>`;
     } else if (portata === "SPECIALITÀ" && specialita >= 1) {
@@ -257,7 +257,7 @@ function stampaTruck(piatti) {
                      <div class="card-text">
                      ${element.prezzoListino}
                    </div>
-                       <a href="#" class="card-button"> Acquista</a>
+                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
                    </div>
                </div>`;
     } else if (portata === "CONTORNO" && contorno >= 1) {
@@ -276,7 +276,7 @@ function stampaTruck(piatti) {
                      <div class="card-text">
                      ${element.prezzoListino}
                    </div>
-                       <a href="#" class="card-button"> Acquista</a>
+                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
                    </div>
                </div>`;
     } else if (portata === "FRITTO" && fritto >= 1) {
@@ -295,7 +295,7 @@ function stampaTruck(piatti) {
                      <div class="card-text">
                      ${element.prezzoListino}
                    </div>
-                       <a href="#" class="card-button"> Acquista</a>
+                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
                    </div>
                </div>`;
     } else if (portata === "KEBAB" && kebab >= 1) {
@@ -314,7 +314,7 @@ function stampaTruck(piatti) {
                      <div class="card-text">
                      ${element.prezzoListino}
                    </div>
-                       <a href="#" class="card-button"> Acquista</a>
+                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
                    </div>
                </div>`;
     } else if (portata === "POKE" && poke >= 1) {
@@ -333,53 +333,34 @@ function stampaTruck(piatti) {
                      <div class="card-text">
                      ${element.prezzoListino}
                    </div>
-                       <a href="#" class="card-button"> Acquista</a>
+                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
                    </div>
                </div>`;
     }
   });
+  inviaAlCarrello();
 }
 
 
+let arrayId = [];
 
+function inviaAlCarrello() {
 
+  let btnAcquista = document.querySelectorAll('.btnAcquista');
+  let controlloStorage = JSON.parse(localStorage.getItem('arrayId'));
+  console.log(btnAcquista);
+  if (controlloStorage) {
+      arrayId = controlloStorage;
+  }
+  btnAcquista.forEach(btn => {
+      btn.addEventListener('click', function () {
+          let id = btn.getAttribute('data-id');
+          arrayId.push(id);
+          console.log(arrayId);
+          localStorage.setItem('arrayId', JSON.stringify(arrayId));
+          // contoCarrello();
 
+      });
 
-// let nuovaRigaPiatto = `<h2 class="mt-4">portata</h2>
-// <div class="row">
-//     <div class="col-md-3 mt-4">
-//         <div class="card-sl">
-//             <div class="card-image">
-//                 <img src="${element.immagine}" />
-//             </div>
-//             <div class="card-heading">
-//                 ${element.nome}
-//             </div>
-//             <div class="card-text">
-//                 ${element.descrizione}
-//             </div>
-//             <div class="card-text">
-//             ${element.prezzoListino}
-//             </div>
-//             <a href="#" class="card-button"> Acquista</a>
-//         </div>
-//     </div>
-// </div>`;
-
-// let nuovoPiatto = `<div class="col-md-3 mt-4">
-// <div class="card-sl">
-//     <div class="card-image">
-//         <img src="${element.immagine}" />
-//     </div>
-//     <div class="card-heading">
-//     ${element.nome}
-//     </div>
-//     <div class="card-text">
-//     ${element.descrizione}
-//     </div>
-//     <div class="card-text">
-//     ${element.prezzoListino}
-//     </div>
-//     <a href="#" class="card-button"> Acquista</a>
-// </div>
-// </div>`;
+  });
+}

@@ -34,14 +34,7 @@ h1, h2, h3 {
     color: #212529;
 }
 
-.carousel-item {
-    height: calc(100vh - 80px);
-    background-position: center;
-    background-size: cover;
-    background-repeat: repeat;
-    max-width: 100%;
-    
-}
+
 .carousel-indicator{
     background-color: #212529;
 }
