@@ -22,13 +22,13 @@ function popolaCarrello() {
 
             console.log(arrayCarrello);
             arrayCarrello.forEach(element => {
-                const URLPIATTI = `http://localhost:8080/api/piatti/piatto/${element.id}`;
-                console.log(element.id);
+                console.log(element)
+                const URLPIATTI = `http://localhost:8080/api/piatti/piatto/${element}`;
                 fetch(URLPIATTI)
 
                     .then(res => res.json())
                     .then((data) => {
-                        console.log(data);
+                        console.log(data, "sono il data");
                         let piatto = `<div class="card rounded-3 mb-4">
                 <div class="card-body p-4">
                 <div class="row d-flex justify-content-between align-items-center">
@@ -39,7 +39,7 @@ function popolaCarrello() {
                 <p class="lead fw-normal mb-2">${data.nome}</p>
                 </div>
                 <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                <h5 class="mb-0">${data.prezzo_listino} €</h5>
+                <h5 class="mb-0">${data.prezzoListino} €</h5>
                 </div>
                 <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                 <a href="#!" class="text-danger"><i class="cestino fas fa-trash fa-lg" data-id="${data.id}"></i></a>
@@ -49,7 +49,7 @@ function popolaCarrello() {
                 </div>`;
 
                         carrelloHtml += piatto;
-                        price += data.prezzo_listino;
+                        price += data.prezzoListino;
                         divTotaleOrdine.innerHTML = `<h4> Totale ordine: ${price} € </h4>`;
                         divProdotti.innerHTML = carrelloHtml;
                         cancellaProdotto();
