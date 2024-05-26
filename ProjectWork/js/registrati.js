@@ -90,41 +90,59 @@ function toShowPassword() {
 
 showPassword.addEventListener("click", toShowPassword);
 
-function controlloMail(email) {
-  fetch(`http://localhost:8080/registrati?email=${email}`)
 
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
-    })
-}
 
 // Aggiungi gestore di eventi click al pulsante
 btn_login.addEventListener("click", function () {
-  var controllo = controlloMail(email.value);
-  // Previeni l'invio predefinito del form
-  if (
-    passwordCheck() &&
-    email.value.match(regexEMAIL) &&
-    cognome.value != "" &&
-    nome.value != "" && (controllo==false)
-  ) {
-    nonInviato.classList.add('d-none');
-    inviato.classList.remove('d-none');
-    inviato.innerHTML = "Dati inviati correttamente";
 
-    // form.classList.add("was-validated");
-    registrazione();
-    console.log("true");
-    setTimeout(() => {
-      window.location.href = 'login.html';
+  let emailLive = email.value;
 
-    }, 2000);
-  } else {
-    console.log('false');
-    inviato.classList.add("text-danger");
-    inviato.innerHTML = "Invio non riuscito";
+  fetch(`http://localhost:8080/registrati?email=${emailLive}`)
 
-  }
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data, "sono dentro la fetch")
+      let risultato = data;
+
+
+      let controllo = risultato;
+      console.log(controllo, "controllo iniziale");
+      // Previeni l'invio predefinito del form
+      if (
+        passwordCheck() &&
+        email.value.match(regexEMAIL) &&
+        cognome.value != "" &&
+        nome.value != "" && (!controllo)
+      ) {
+        console.log(controllo, "sono dentro l-if")
+        nonInviato.classList.add('d-none');
+        inviato.classList.remove('d-none');
+        inviato.classList.remove('text-danger');
+        inviato.classList.add('text-success');
+        inviato.innerHTML = "Dati inviati correttamente";
+
+
+        // form.classList.add("was-validated");
+        registrazione();
+        console.log("true");
+        setTimeout(() => {
+          window.location.href = 'login.html';
+
+        }, 2000);
+      } else if (controllo) {
+        inviato.classList.remove('text-success');
+        inviato.classList.add('text-danger');
+        nonInviato.classList.remove("d-none");
+        nonInviato.innerHTML = "Email già esistente";
+        inviato.innerHTML = "Invio non riuscito";
+
+      } else {
+        console.log('Email doppione');
+        inviato.classList.add("text-danger");
+        inviato.innerHTML = "Invio non riuscito";
+      }
+
+
+    })
 });
 
