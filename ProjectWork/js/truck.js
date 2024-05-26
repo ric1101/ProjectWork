@@ -16,20 +16,20 @@ function dettaglioTruck() {
     .then((res) => res.json())
     .then((data) => {
       stampaTruck(data.piatti);
-    //   console.log(data.piatti);
+      //   console.log(data.piatti);
       stampaIndirizzoVideo(
         data.videoMarchio,
         data.foodtrucks.indirizzo,
         data.foodtrucks.coordinateGps,
         data.genere
       );
-    //   console.log(data);
+      //   console.log(data);
     });
 }
 dettaglioTruck();
 
 function stampaIndirizzoVideo(video, indirizzo, coordinate, genere) {
-//   console.log(video);
+  //   console.log(video);
 
   containerVideo.innerHTML += `<div class="row gx-0">
     <div class="col-lg-6">
@@ -64,7 +64,7 @@ function stampaIndirizzoVideo(video, indirizzo, coordinate, genere) {
   let coordinateArray = coordinate.split(",");
   let lat = coordinateArray[0];
   let lon = coordinateArray[1];
-//   console.log(lat, lon);
+  //   console.log(lat, lon);
 
   var map = L.map("map").setView([lat, lon], 13);
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -95,7 +95,7 @@ function stampaTruck(piatti) {
 
     let portata = element.portata;
     // console.log(portata);
-    
+
 
     if (portata === "SNACK" && snack < 1) {
       containerPiatti.innerHTML += `<h2 class="mt-4">SNACK</h2>
@@ -103,71 +103,71 @@ function stampaTruck(piatti) {
                 
             </div>`;
       snack++;
-    
+
     } else if (portata === "PANINO" && panino < 1) {
       containerPiatti.innerHTML += `<h2 class="mt-4">PANINO</h2>
         <div class="row panini">
          
         </div>`;
       panino++;
-    
+
     } else if (portata === "BEVANDA" && bevanda < 1) {
       containerPiatti.innerHTML += `<h2 class="mt-4">BEVANDA</h2>
         <div class="row bevanda">
          
         </div>`;
       bevanda++;
-      
+
     } else if (portata === "DOLCE" && dolce < 1) {
       containerPiatti.innerHTML += `<h2 class="mt-4">DOLCE</h2>
         <div class="row dolce">
          
         </div>`;
       dolce++;
-      
+
     } else if (portata === "SPECIALITÀ" && specialita < 1) {
       containerPiatti.innerHTML += `<h2 class="mt-4">SPECIALITÀ</h2>
         <div class="row specialita">
            
         </div>`;
       specialita++;
-     
+
     } else if (portata === "CONTORNO" && contorno < 1) {
       containerPiatti.innerHTML += `<h2 class="mt-4">CONTORNO</h2>
         <div class="row contorno">
             
         </div>`;
       contorno++;
-    
+
     } else if (portata === "FRITTO" && fritto < 1) {
       containerPiatti.innerHTML += `<h2 class="mt-4">FRITTO</h2>
         <div class="row fritto">
          
         </div>`;
       fritto++;
-     
+
     } else if (portata === "KEBAB" && kebab < 1) {
       containerPiatti.innerHTML += `<h2 class="mt-4">KEBAB</h2>
         <div class="row kebab">
          
         </div>`;
       kebab++;
-    
+
     } else if (portata === "POKE" && poke < 1) {
       containerPiatti.innerHTML += `<h2 class="mt-4">POKE</h2>
         <div class="row poke">
          
         </div>`;
       poke++;
-    
+
     }
 
     console.log(panino);
 
     if (portata === "SNACK" && snack >= 1) {
-        let snackDiv = document.querySelector(".snack");
-          snackDiv.innerHTML += `<div class="col-md-3 mt-4">
-          <div class="card-sl">
+      let snackDiv = document.querySelector(".snack");
+      snackDiv.innerHTML += `<div class="col-md-3 mt-4">
+          <div class="card-sl active reveal fade-left">
               <div class="card-image">
                   <img src="${element.immagine}" />
               </div>
@@ -183,11 +183,11 @@ function stampaTruck(piatti) {
                 <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
             </div>
         </div>`;
-       
+
     } else if (portata === "PANINO" && panino >= 1) {
-        let paninoDiv = document.querySelector(".panini");
-        paninoDiv.innerHTML += `<div class="col-md-3 mt-4">
-                 <div class="card-sl">
+      let paninoDiv = document.querySelector(".panini");
+      paninoDiv.innerHTML += `<div class="col-md-3 mt-4">
+                 <div class="card-sl active reveal fade-top">
                      <div class="card-image">
                          <img src="${element.immagine}" />
                      </div>
@@ -204,9 +204,9 @@ function stampaTruck(piatti) {
                    </div>
                </div>`;
     } else if (portata === "BEVANDA" && bevanda >= 1) {
-        let bevandaDiv = document.querySelector(".bevanda");
+      let bevandaDiv = document.querySelector(".bevanda");
       bevandaDiv.innerHTML += `<div class="col-md-3 mt-4">
-                 <div class="card-sl">
+                 <div class="card-sl active reveal fade-left">
                      <div class="card-image">
                          <img src="${element.immagine}" />
                      </div>
@@ -223,9 +223,9 @@ function stampaTruck(piatti) {
                    </div>
                </div>`;
     } else if (portata === "DOLCE" && dolce >= 1) {
-        let dolceDiv = document.querySelector(".dolce");
+      let dolceDiv = document.querySelector(".dolce");
       dolceDiv.innerHTML += `<div class="col-md-3 mt-4">
-                 <div class="card-sl">
+                 <div class="card-sl active reveal fade-top">
                      <div class="card-image">
                          <img src="${element.immagine}" />
                      </div>
@@ -242,8 +242,8 @@ function stampaTruck(piatti) {
                    </div>
                </div>`;
     } else if (portata === "SPECIALITÀ" && specialita >= 1) {
-        let specialitaDiv = document.querySelector(".specialita");
-      specialitaDiv.innerHTML += `<div class="col-md-3 mt-4">
+      let specialitaDiv = document.querySelector(".specialita");
+      specialitaDiv.innerHTML += `<div class="col-md-3 mt-4 active reveal fade-left">
                  <div class="card-sl">
                      <div class="card-image">
                          <img src="${element.immagine}" />
@@ -261,8 +261,8 @@ function stampaTruck(piatti) {
                    </div>
                </div>`;
     } else if (portata === "CONTORNO" && contorno >= 1) {
-        let contornoDiv = document.querySelector(".contorno");
-      contornoDiv.innerHTML += `<div class="col-md-3 mt-4">
+      let contornoDiv = document.querySelector(".contorno");
+      contornoDiv.innerHTML += `<div class="col-md-3 mt-4 active reveal fade-top">
                  <div class="card-sl">
                      <div class="card-image">
                          <img src="${element.immagine}" />
@@ -280,9 +280,9 @@ function stampaTruck(piatti) {
                    </div>
                </div>`;
     } else if (portata === "FRITTO" && fritto >= 1) {
-        let frittoDiv = document.querySelector(".fritto");
+      let frittoDiv = document.querySelector(".fritto");
       frittoDiv.innerHTML += `<div class="col-md-3 mt-4">
-                 <div class="card-sl">
+                 <div class="card-sl active reveal fade-left">
                      <div class="card-image">
                          <img src="${element.immagine}" />
                      </div>
@@ -299,9 +299,9 @@ function stampaTruck(piatti) {
                    </div>
                </div>`;
     } else if (portata === "KEBAB" && kebab >= 1) {
-        let kebabDiv = document.querySelector(".kebab");
-      kebabDiv.innerHTML += `<div class="col-md-3 mt-4">
-                 <div class="card-sl">
+      let kebabDiv = document.querySelector(".kebab");
+      kebabDiv.innerHTML += `<div class="col-md-3 mt-4 ">
+                 <div class="card-sl active reveal fade-left">
                      <div class="card-image">
                          <img src="${element.immagine}" />
                      </div>
@@ -318,9 +318,9 @@ function stampaTruck(piatti) {
                    </div>
                </div>`;
     } else if (portata === "POKE" && poke >= 1) {
-        let pokeDiv = document.querySelector(".poke");
+      let pokeDiv = document.querySelector(".poke");
       pokeDiv.innerHTML += `<div class="col-md-3 mt-4">
-                 <div class="card-sl">
+                 <div class="card-sl active reveal fade-top">
                      <div class="card-image">
                          <img src="${element.immagine}" />
                      </div>
@@ -351,17 +351,17 @@ function inviaAlCarrello() {
   let controlloStorage = JSON.parse(localStorage.getItem('arrayId'));
   console.log(btnAcquista);
   if (controlloStorage) {
-      arrayId = controlloStorage;
+    arrayId = controlloStorage;
   }
   btnAcquista.forEach(btn => {
-      btn.addEventListener('click', function () {
-          let id = btn.getAttribute('data-id');
-          arrayId.push(id);
-          console.log(arrayId);
-          localStorage.setItem('arrayId', JSON.stringify(arrayId));
-          // contoCarrello();
+    btn.addEventListener('click', function () {
+      let id = btn.getAttribute('data-id');
+      arrayId.push(id);
+      console.log(arrayId);
+      localStorage.setItem('arrayId', JSON.stringify(arrayId));
+      // contoCarrello();
 
-      });
+    });
 
   });
 }
@@ -382,12 +382,12 @@ function inviaAlCarrello() {
 // contoCarrello();
 
 function descrizioneBreve() {
-  
+
   let cardText = document.querySelectorAll('.card-text');
   cardText.forEach(desc => {
     console.log(cardText);
     let descrizione = desc.textContent.trim();
-    if(descrizione.length > 30) {
+    if (descrizione.length > 30) {
       console.log(descrizione.length);
       desc.textContent = descrizione.substring(0, 30);
       desc.textContent += '...';
