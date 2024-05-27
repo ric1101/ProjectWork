@@ -88,6 +88,12 @@ function stampaTruck(piatti) {
   let fritto = 0;
   let kebab = 0;
   let poke = 0;
+  let nigiri = 0;
+  let uramaki = 0;
+  let hosomaki = 0;
+  let temaki = 0;
+  let sashimi = 0;
+  let salse = 0;
 
 
   piatti.forEach((element) => {
@@ -159,6 +165,48 @@ function stampaTruck(piatti) {
          
         </div>`;
       poke++;
+
+    } else if (portata === "NIGIRI" && nigiri < 1) {
+      containerPiatti.innerHTML += `<h2 class="mt-4">NIGIRI</h2>
+        <div class="row nigiri">
+         
+        </div>`;
+      nigiri++;
+
+    } else if (portata === "URAMAKI" && uramaki < 1) {
+      containerPiatti.innerHTML += `<h2 class="mt-4">URAMAKI</h2>
+        <div class="row uramaki">
+         
+        </div>`;
+      uramaki++;
+
+    } else if (portata === "HOSOMAKI" && hosomaki < 1) {
+      containerPiatti.innerHTML += `<h2 class="mt-4">HOSOMAKI</h2>
+        <div class="row hosomaki">
+         
+        </div>`;
+      hosomaki++;
+
+    } else if (portata === "TEMAKI" && temaki < 1) {
+      containerPiatti.innerHTML += `<h2 class="mt-4">TEMAKI</h2>
+        <div class="row temaki">
+         
+        </div>`;
+      temaki++;
+
+    } else if (portata === "SASHIMI" && sashimi < 1) {
+      containerPiatti.innerHTML += `<h2 class="mt-4">SASHIMI</h2>
+        <div class="row sashimi">
+         
+        </div>`;
+      sashimi++;
+
+    } else if (portata === "SALSE" && salse < 1) {
+      containerPiatti.innerHTML += `<h2 class="mt-4">SALSE</h2>
+        <div class="row salse">
+         
+        </div>`;
+      salse++;
 
     }
 
@@ -336,6 +384,120 @@ function stampaTruck(piatti) {
                        <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
                    </div>
                </div>`;
+    } else if (portata === "NIGIRI" && nigiri >= 1) {
+      let nigDiv = document.querySelector(".nigiri");
+      nigDiv.innerHTML += `<div class="col-md-3 mt-4">
+                 <div class="card-sl active reveal fade-top">
+                     <div class="card-image text-center">
+                         <img src="${element.immagine}" />
+                     </div>
+                     <div class="card-heading">
+                         ${element.nome}
+                     </div>
+                     <div class="card-text">
+                      ${element.descrizione}
+                     </div>
+                     <div class="card-text">
+                     ${element.prezzoListino} €
+                   </div>
+                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
+                   </div>
+               </div>`;
+    } else if (portata === "URAMAKI" && uramaki >= 1) {
+      let uraDiv = document.querySelector(".uramaki");
+      uraDiv.innerHTML += `<div class="col-md-3 mt-4">
+                 <div class="card-sl active reveal fade-top">
+                     <div class="card-image text-center">
+                         <img src="${element.immagine}" />
+                     </div>
+                     <div class="card-heading">
+                         ${element.nome}
+                     </div>
+                     <div class="card-text">
+                      ${element.descrizione}
+                     </div>
+                     <div class="card-text">
+                     ${element.prezzoListino} €
+                   </div>
+                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
+                   </div>
+               </div>`;
+    } else if (portata === "HOSOMAKI" && hosomaki >= 1) {
+      let hosDiv = document.querySelector(".hosomaki");
+      hosDiv.innerHTML += `<div class="col-md-3 mt-4">
+                 <div class="card-sl active reveal fade-top">
+                     <div class="card-image text-center">
+                         <img src="${element.immagine}" />
+                     </div>
+                     <div class="card-heading">
+                         ${element.nome}
+                     </div>
+                     <div class="card-text">
+                      ${element.descrizione}
+                     </div>
+                     <div class="card-text">
+                     ${element.prezzoListino} €
+                   </div>
+                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
+                   </div>
+               </div>`;
+    } else if (portata === "TEMAKI" && temaki >= 1) {
+      let temDiv = document.querySelector(".temaki");
+      temDiv.innerHTML += `<div class="col-md-3 mt-4">
+                 <div class="card-sl active reveal fade-top">
+                     <div class="card-image text-center">
+                         <img src="${element.immagine}" />
+                     </div>
+                     <div class="card-heading">
+                         ${element.nome}
+                     </div>
+                     <div class="card-text">
+                      ${element.descrizione}
+                     </div>
+                     <div class="card-text">
+                     ${element.prezzoListino} €
+                   </div>
+                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
+                   </div>
+               </div>`;
+    } else if (portata === "SASHIMI" && sashimi >= 1) {
+      let sasDiv = document.querySelector(".sashimi");
+      sasDiv.innerHTML += `<div class="col-md-3 mt-4">
+                 <div class="card-sl active reveal fade-top">
+                     <div class="card-image text-center">
+                         <img src="${element.immagine}" />
+                     </div>
+                     <div class="card-heading">
+                         ${element.nome}
+                     </div>
+                     <div class="card-text">
+                      ${element.descrizione}
+                     </div>
+                     <div class="card-text">
+                     ${element.prezzoListino} €
+                   </div>
+                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
+                   </div>
+               </div>`;
+    } else if (portata === "SALSE" && salse >= 1) {
+      let salDiv = document.querySelector(".salse");
+      salDiv.innerHTML += `<div class="col-md-3 mt-4">
+                 <div class="card-sl active reveal fade-top">
+                     <div class="card-image text-center">
+                         <img src="${element.immagine}" />
+                     </div>
+                     <div class="card-heading">
+                         ${element.nome}
+                     </div>
+                     <div class="card-text">
+                      ${element.descrizione}
+                     </div>
+                     <div class="card-text">
+                     ${element.prezzoListino} €
+                   </div>
+                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
+                   </div>
+               </div>`;
     }
   });
   descrizioneBreve();
@@ -360,7 +522,7 @@ function inviaAlCarrello() {
     btn.addEventListener('click', function () {
       let id = btn.getAttribute('data-id');
       let idParsato = parseInt(id);
-      let oggettoId = {'id': idParsato};
+      let oggettoId = { 'id': idParsato };
       arrayIdOggetto.push(oggettoId);
       arrayId.push(id);
       localStorage.setItem('arrayIdOggetto', JSON.stringify(arrayIdOggetto));
@@ -440,7 +602,7 @@ function contoCarrello() {
   numeroArticoli.innerHTML = numProdotti;
 
   if (numProdotti == 0) {
-      numeroArticoli.innerHTML = null;
+    numeroArticoli.innerHTML = null;
   }
 
 }
