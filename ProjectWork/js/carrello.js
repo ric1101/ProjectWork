@@ -14,6 +14,7 @@ let divTotaleOrdine = document.querySelector('#totale-ordini');
 function popolaCarrello() {
     let price = 0;
     let arrayCarrello = JSON.parse(localStorage.getItem('arrayId'));
+    
 
     if (arrayCarrello != null) {
 
@@ -28,7 +29,7 @@ function popolaCarrello() {
 
                     .then(res => res.json())
                     .then((data) => {
-                        console.log(data, "sono il data");
+                        // console.log(data, "sono il data");
                         let piatto = `<div class="card rounded-3 mb-4">
                 <div class="card-body p-4">
                 <div class="row d-flex justify-content-between align-items-center">
@@ -74,14 +75,17 @@ popolaCarrello();
 function cancellaProdotto() {
 
     let arrayCarrello = JSON.parse(localStorage.getItem('arrayId'));
+    let arrayCarrelloOggetto = JSON.parse(localStorage.getItem('arrayIdOggetto'));
     let cestino = document.querySelectorAll('.cestino');
     cestino.forEach(btn => {
         btn.addEventListener('click', function () {
             const id = btn.getAttribute('data-id');
             let elementoEliminare = arrayCarrello.indexOf(id);
             arrayCarrello.splice(elementoEliminare, 1);
+            arrayCarrelloOggetto.splice(elementoEliminare, 1);
             console.log(id);
             localStorage.setItem('arrayId', JSON.stringify(arrayCarrello));
+            localStorage.setItem('arrayIdOggetto', JSON.stringify(arrayCarrelloOggetto));
             popolaCarrello();
             contoCarrello();
         });

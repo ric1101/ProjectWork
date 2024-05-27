@@ -343,21 +343,27 @@ function stampaTruck(piatti) {
 }
 
 
+let arrayIdOggetto = [];
 let arrayId = [];
 
 function inviaAlCarrello() {
 
   let btnAcquista = document.querySelectorAll('.btnAcquista');
   let controlloStorage = JSON.parse(localStorage.getItem('arrayId'));
+  let controlloStorageOggetto = JSON.parse(localStorage.getItem('arrayIdOggetto'));
   console.log(btnAcquista);
-  if (controlloStorage) {
+  if (controlloStorage && controlloStorageOggetto) {
     arrayId = controlloStorage;
+    arrayIdOggetto = controlloStorageOggetto;
   }
   btnAcquista.forEach(btn => {
     btn.addEventListener('click', function () {
       let id = btn.getAttribute('data-id');
+      let idParsato = parseInt(id);
+      let oggettoId = {'id': idParsato};
+      arrayIdOggetto.push(oggettoId);
       arrayId.push(id);
-      console.log(arrayId);
+      localStorage.setItem('arrayIdOggetto', JSON.stringify(arrayIdOggetto));
       localStorage.setItem('arrayId', JSON.stringify(arrayId));
       contoCarrello();
 

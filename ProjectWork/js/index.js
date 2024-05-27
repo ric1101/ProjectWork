@@ -2,10 +2,10 @@ var swiper = new Swiper(".mySwiper", {
   slidesPerView: 1,
   freeMode: true,
   loop: true,
-  // autoplay: {
-  //   enable: true,
-  //   delay: 3000
-  // },
+  autoplay: {
+    enable: true,
+    delay: 3000
+  },
   pagination: {
     el: ".swiper-pagination",
     clickable: true,

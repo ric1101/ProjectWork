@@ -95,18 +95,6 @@ function contoCarrello() {
 }
 contoCarrello();
 
-// {
-//   "data_ordine": "2024-05-27",
-//   "numero_ordine": 0,
-//   "totale_ordine": 0,
-//   "piatti": [
-//     {
-//       "id": 0,
-//     }
-//   ],
-//   "utente": 0,
-//   "truck": 0
-// }
 
 class Ordine {
   constructor(
@@ -126,7 +114,7 @@ class Ordine {
   }
 }
 
-let dataOggi = new Date().toLocaleDateString();
+let dataOggi = new Date().toISOString();
 console.log(dataOggi);
 
 let nuovoOrdine = {};
@@ -138,28 +126,44 @@ function inviaOrdine() {
   numeroOrdine++;
   console.log(numeroOrdine);
 
-
   let idUtente = JSON.parse(localStorage.getItem('idUtente'));
   let idTruck = JSON.parse(localStorage.getItem('id-truck'));
-  let prodottiOrdine = JSON.parse(localStorage.getItem('arrayId'));
+  let prodottiOrdine = JSON.parse(localStorage.getItem('arrayIdOggetto'));
   let totaleCarrello = JSON.parse(localStorage.getItem('totaleCarrello'));
   let totaleCarrelloFixed = totaleCarrello.toFixed(2);
-console.log(totaleCarrelloFixed);
+  let totaleParsato = parseInt(totaleCarrelloFixed);
+  console.log(totaleCarrelloFixed);
+
+
+//FUNZIONE DATA ITALIANA
+function dataIt(dataSQL) {
+  let data = new Date(dataSQL);
+
+  let giorno = String(data.getDate()).padStart(2, "0");
+  let mese = String(data.getMonth() + 1).padStart(2, "0");
+  let anno = String(data.getFullYear());
+
+  let dataFormattata = `${anno}-${mese}-${giorno}`
+
+  return dataFormattata;
+}
+
+
 
   let URLORDER = `http://localhost:8080/api/ordini/utente/${idUtente}/truck/${idTruck}`;
   console.log(idUtente, idTruck, prodottiOrdine);
 
   nuovoOrdine = new Ordine(
-    dataOggi,
+    dataIt(dataOggi),
     numeroOrdine,
-    totaleCarrelloFixed,
+    totaleParsato,
     prodottiOrdine,
     idUtente,
     idTruck
   );
  
-  console.log(nuovoOrdine);
-
+  console.log(JSON.stringify(nuovoOrdine));
+  
   fetch(URLORDER, {
     method: "POST",
     headers: {

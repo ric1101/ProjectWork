@@ -94,7 +94,7 @@ showPassword.addEventListener("click", toShowPassword);
 
 // Aggiungi gestore di eventi click al pulsante
 btn_login.addEventListener("click", function () {
-
+  event.preventDefault();
   let emailLive = email.value;
 
   fetch(`http://localhost:8080/registrati?email=${emailLive}`)
