@@ -37,9 +37,28 @@ function inviaPaginaDisponibilita() {
 }
 inviaPaginaDisponibilita();
 
-let getIdUtente = localStorage.getItem('idUtente');
-if (getIdUtente != null) {
-  
+
+
+function logged() {
+
+  let getIdUtente = localStorage.getItem('idUtente');
+  if (getIdUtente != null) {
+    console.log(getIdUtente);
+    user.classList.remove('d-none');
+    user.classList.add('d-block');
+    carrello.classList.remove('d-none');
+    carrello.classList.add('d-block');
+    logout.classList.remove('d-none');
+    logout.classList.add('d-block');
+    login.classList.add('d-none');
+  } else {
+    console.log(55);
+    user.classList.add('d-none');
+    carrello.classList.add('d-none');
+    logout.classList.add('d-none');
+    login.classList.remove('d-block');
+  }
+
 }
 
 function contoCarrello() {
@@ -56,3 +75,4 @@ function contoCarrello() {
 
 }
 contoCarrello();
+
