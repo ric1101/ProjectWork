@@ -168,7 +168,7 @@ function stampaTruck(piatti) {
       let snackDiv = document.querySelector(".snack");
       snackDiv.innerHTML += `<div class="col-md-3 mt-4">
           <div class="card-sl active reveal fade-left">
-              <div class="card-image">
+              <div class="card-image text-center">
                   <img src="${element.immagine}" />
               </div>
               <div class="card-heading">
@@ -188,7 +188,7 @@ function stampaTruck(piatti) {
       let paninoDiv = document.querySelector(".panini");
       paninoDiv.innerHTML += `<div class="col-md-3 mt-4">
                  <div class="card-sl active reveal fade-top">
-                     <div class="card-image">
+                     <div class="card-image text-center">
                          <img src="${element.immagine}" />
                      </div>
                      <div class="card-heading">
@@ -207,7 +207,7 @@ function stampaTruck(piatti) {
       let bevandaDiv = document.querySelector(".bevanda");
       bevandaDiv.innerHTML += `<div class="col-md-3 mt-4">
                  <div class="card-sl active reveal fade-left">
-                     <div class="card-image">
+                     <div class="card-image text-center">
                          <img src="${element.immagine}" />
                      </div>
                      <div class="card-heading">
@@ -226,7 +226,7 @@ function stampaTruck(piatti) {
       let dolceDiv = document.querySelector(".dolce");
       dolceDiv.innerHTML += `<div class="col-md-3 mt-4">
                  <div class="card-sl active reveal fade-top">
-                     <div class="card-image">
+                     <div class="card-image text-center">
                          <img src="${element.immagine}" />
                      </div>
                      <div class="card-heading">
@@ -245,7 +245,7 @@ function stampaTruck(piatti) {
       let specialitaDiv = document.querySelector(".specialita");
       specialitaDiv.innerHTML += `<div class="col-md-3 mt-4 active reveal fade-left">
                  <div class="card-sl">
-                     <div class="card-image">
+                     <div class="card-image text-center">
                          <img src="${element.immagine}" />
                      </div>
                      <div class="card-heading">
@@ -264,7 +264,7 @@ function stampaTruck(piatti) {
       let contornoDiv = document.querySelector(".contorno");
       contornoDiv.innerHTML += `<div class="col-md-3 mt-4 active reveal fade-top">
                  <div class="card-sl">
-                     <div class="card-image">
+                     <div class="card-image text-center">
                          <img src="${element.immagine}" />
                      </div>
                      <div class="card-heading">
@@ -283,7 +283,7 @@ function stampaTruck(piatti) {
       let frittoDiv = document.querySelector(".fritto");
       frittoDiv.innerHTML += `<div class="col-md-3 mt-4">
                  <div class="card-sl active reveal fade-left">
-                     <div class="card-image">
+                     <div class="card-image text-center">
                          <img src="${element.immagine}" />
                      </div>
                      <div class="card-heading">
@@ -302,7 +302,7 @@ function stampaTruck(piatti) {
       let kebabDiv = document.querySelector(".kebab");
       kebabDiv.innerHTML += `<div class="col-md-3 mt-4 ">
                  <div class="card-sl active reveal fade-left">
-                     <div class="card-image">
+                     <div class="card-image text-center">
                          <img src="${element.immagine}" />
                      </div>
                      <div class="card-heading">
@@ -321,7 +321,7 @@ function stampaTruck(piatti) {
       let pokeDiv = document.querySelector(".poke");
       pokeDiv.innerHTML += `<div class="col-md-3 mt-4">
                  <div class="card-sl active reveal fade-top">
-                     <div class="card-image">
+                     <div class="card-image text-center">
                          <img src="${element.immagine}" />
                      </div>
                      <div class="card-heading">
@@ -338,7 +338,7 @@ function stampaTruck(piatti) {
                </div>`;
     }
   });
-  descrizioneBreve()
+  descrizioneBreve();
   inviaAlCarrello();
 }
 
@@ -359,27 +359,12 @@ function inviaAlCarrello() {
       arrayId.push(id);
       console.log(arrayId);
       localStorage.setItem('arrayId', JSON.stringify(arrayId));
-      // contoCarrello();
+      contoCarrello();
 
     });
 
   });
 }
-
-// function contoCarrello() {
-//   console.log(numProdotti);
-
-//   arrayCarrello = JSON.parse(localStorage.getItem('arrayId'));
-
-//   numProdotti = arrayCarrello.length;
-//   numeroArticoli.innerHTML = numProdotti;
-
-//   if (numProdotti == 0) {
-//       numeroArticoli.innerHTML = null;
-//   }
-
-// }
-// contoCarrello();
 
 function descrizioneBreve() {
 
@@ -397,3 +382,60 @@ function descrizioneBreve() {
   });
 
 }
+
+let user = document.querySelector('.user');
+let carrello = document.querySelector('.carrello');
+let logout = document.querySelector('.logout');
+let login = document.querySelector('.login');
+
+function logged() {
+
+  let getIdUtente = localStorage.getItem('idUtente');
+  if (getIdUtente != null || getIdUtente == 0 || getIdUtente === undefined) {
+    console.log(getIdUtente);
+    user.classList.remove('d-none');
+    user.classList.add('d-block');
+    carrello.classList.remove('d-none');
+    carrello.classList.add('d-block');
+    logout.classList.remove('d-none');
+    logout.classList.add('d-block');
+    login.classList.add('d-none');
+  } else {
+    console.log(55);
+    user.classList.add('d-none');
+    carrello.classList.add('d-none');
+    logout.classList.add('d-none');
+    login.classList.remove('d-none');
+    login.classList.add('d-block');
+  }
+
+}
+logged();
+
+function logOut() {
+  localStorage.removeItem('idUtente');
+  console.log('ciao');
+  logged();
+}
+
+logout.addEventListener('click', logOut);
+
+
+let arrayCarrello = [];
+let numeroArticoli = document.querySelector('#numeroArticoli');
+let numProdotti = 0;
+
+function contoCarrello() {
+  console.log(numProdotti);
+
+  arrayCarrello = JSON.parse(localStorage.getItem('arrayId'));
+
+  numProdotti = arrayCarrello.length;
+  numeroArticoli.innerHTML = numProdotti;
+
+  if (numProdotti == 0) {
+      numeroArticoli.innerHTML = null;
+  }
+
+}
+contoCarrello();

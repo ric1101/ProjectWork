@@ -17,8 +17,6 @@ var swiper = new Swiper(".mySwiper", {
 });
 
 
-
-
 function inviaPaginaDisponibilita() {
 
   let filtri = document.querySelectorAll('.filtro');
@@ -45,7 +43,7 @@ let login = document.querySelector('.login');
 function logged() {
 
   let getIdUtente = localStorage.getItem('idUtente');
-  if (getIdUtente != null) {
+  if (getIdUtente != null || getIdUtente == 0 || getIdUtente === undefined) {
     console.log(getIdUtente);
     user.classList.remove('d-none');
     user.classList.add('d-block');
@@ -59,11 +57,21 @@ function logged() {
     user.classList.add('d-none');
     carrello.classList.add('d-none');
     logout.classList.add('d-none');
-    login.classList.remove('d-block');
+    login.classList.remove('d-none');
+    login.classList.add('d-block');
   }
 
 }
 logged();
+
+function logOut() {
+  localStorage.removeItem('idUtente');
+  console.log('ciao');
+  logged();
+}
+
+logout.addEventListener('click', logOut);
+
 
 let arrayCarrello = [];
 let numeroArticoli = document.querySelector('#numeroArticoli');
@@ -83,11 +91,3 @@ function contoCarrello() {
 
 }
 contoCarrello();
-
-
-function logOut() {
-  localStorage.removeItem('idUtente');
-  logged();
-}
-
-logout.addEventListener('click', logOut);

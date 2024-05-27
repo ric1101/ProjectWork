@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+          <div class="container-fluid">
+            <a href="index.html"><img src="./img/TruckwaY.png" alt="Logo" width="180" height="auto"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end p-3" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item index">
+                  <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                </li>
+                <li class="nav-item trucks">
+                  <a class="nav-link" href="./trucks.html">Trucks</a>
+                </li>
+                <li class="nav-item login">
+                  <a class="nav-link" href="./login.html">Login</a>
+                </li>
+                <li class="nav-item user d-none" style="padding: 8px;">
+                  <a href=""><i class="fa-solid fa-circle-user" style="color: #cacbcc; font-size: 25px;"></i>
+                  </a>
+                </li>
+                <li class="nav-item logout d-none">
+                  <a class="nav-link" href="#!">Logout</a>
+                </li>
+                <li class="nav-item carrello d-none" style="font-size: 20px;">
+                  <a class="nav-link" href="./carrello.html"><i class="fa-solid fa-cart-shopping"
+                      style="color: #cacbcc; font-size: 25px;"></i>
+                    <span class="position-absolute top-1 start-99 translate-middle badge rounded-pill bg-danger"
+                      id="numeroArticoli"></span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+
+    <div class="container p-5 d-flex">
+        <form class="row g-3 p-5 needs-validation" novalidate action="#!">
+            <h1>Pagamento</h1>
+            <div class="col-md-6">
+                <label for="validationCustom01" class="form-label">Nome</label>
+                <input type="text" class="form-control richiesti" id="validationCustom01" placeholder="Nome"
+                    aria-label="Nome" maxLength="58"  required>
+                <div class="invalid-feedback">
+                    Nome richiesto
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="validationCustom02" class="form-label">Cognome</label>
+                <input type="text" class="form-control richiesti" id="validationCustom02" placeholder="Cognome"
+                    aria-label="Cognome" maxLength="40" required>
+                <div class="invalid-feedback">
+                    Cognome richiesto
+                </div>
+            </div>
+            
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label for="validationCustom07" class="form-label">Titolare della carta</label>
+                    <input type="text" class="form-control richiesti" id="validationCustom07" placeholder="Nome Cognome"
+                    maxLength="50"  required>
+                    <small class="text-muted">Nome completo del titolare della carta</small>
+                    <div class="invalid-feedback">
+                        Nome titolare carta richiesto
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="validationCustom08" class="form-label">Numero della carta</label>
+                    <input type="text" class="form-control richiesti" id="validationCustom08" placeholder="Numero della carta" maxLength="16" required>
+                    <div class="invalid-feedback">
+                        Numero della carta richiesto
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <label for="validationCustom09" class="form-label">Scadenza</label>
+                    <input type="text" class="form-control richiesti" id="validationCustom09" placeholder="MM/YYYY"
+                    maxLength="7" required>
+                    <div class="invalid-feedback">
+                        Data di scadenza richiesta
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <label for="validationCustom10" class="form-label">CVV</label>
+                    <input type="text" class="form-control richiesti" id="validationCustom10" placeholder="***" maxLength="3" required>
+                    <div class="invalid-feedback">
+                        CVV richiesto
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-check">
+                        <input id="credit" name="paymentMethod" type="radio" class="form-check-input richiesti"
+                            checked="" required>
+                        <label class="form-check-label" for="credit">Carta di Credito</label>
+                    </div>
+                    <div class="form-check">
+                        <input id="debit" name="paymentMethod" type="radio" class="form-check-input richiesti"
+                            required="">
+                        <label class="form-check-label" for="debit">Carta di Debito</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary paga">Paga</button>
+            </div>
+        </form>
+        <div class="container-foto p-5">
+            <img src="./img/carrello.png" alt="carrello" class="img-fluid">
+
+        </div>
+        <div class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Ordine Confermato</h5>
+                    </div>
+                    <div class="modal-body">
+                        <p>Grazie per aver acquistato su Amazone!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary close" data-dismiss="modal">Continua ad
+                            acquistare</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+   <!-- Footer -->
+  <footer class="text-center text-lg-start text-dark" style="background-color: #009942ab">
+
+    <!-- Section: Links  -->
+    <section class="footer p-2">
+      <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold">TruckwaY</h6>
+            <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #FFCC00; height: 4px" />
+            <p>
+              I food trucks rappresentano una parte vibrante e dinamica della cultura culinaria moderna,
+              combinando convenienza, creatività e convivialità in ogni piatto servito su strada.
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold">Link</h6>
+            <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #FFCC00; height: 4px" />
+            <p>
+              <a href="./index.html" class="text-dark">Home</a>
+            </p>
+            <p>
+              <a href="./login.html" class="text-dark">Login</a>
+            </p>
+            <p>
+              <a href="./trucks.html" class="text-dark">Trucks</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold">Social Network</h6>
+            <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #FFCC00; height: 4px" />
+            <p>
+              <a href="" class="text-dark me-4">
+                <i class="fab fa-facebook-f"></i> Facebook
+              </a>
+            </p>
+            <p>
+              <a href="" class="text-dark me-4">
+                <i class="fab fa-instagram"></i> Instagram
+              </a>
+            </p>
+            <p>
+              <a href="" class="text-dark me-4">
+                <i class="fab fa-twitter"></i> Twitter
+              </a>
+            </p>
+            <p>
+              <a href="" class="text-dark me-4">
+                <i class="fab fa-linkedin"></i> LinkedIn
+              </a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold">Contatti</h6>
+            <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: #FFCC00; height: 4px" />
+            <p><i class="fas fa-home mr-3"></i> Via del Corso, 123 Roma(RM)</p>
+            <p><i class="fas fa-envelope mr-3"></i> truckway.food@gmail.com</p>
+            <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+            <p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: #FFCC00">
+      © 2024 Copyright:
+      <a class="text-dark" href="./index.html">TruckwaY</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./js/pagamento.js"></script>
+</body>
+
+</html>
