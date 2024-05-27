@@ -26,7 +26,7 @@ function stampa(array, marchio, genere) {
   let marchio1 = marchio;
   let genere1 = genere;
   array.forEach(element => {
-    if (element.disponibilità == true) {
+    if (element.disponibilita == true) {
       all.innerHTML += `<div class="card m-4 col-lg-3 col-md-4 col-sm-6 mb-4 cardTrue" data-id="${element.id}" data-nome="${element.nome}">
       <div class="card-body  p-0 ">
       <div class="box-image" style="height: 100%;">
@@ -99,7 +99,7 @@ let login = document.querySelector('.login');
 function logged() {
 
   let getIdUtente = localStorage.getItem('idUtente');
-  if (getIdUtente != null || getIdUtente == 0 || getIdUtente === undefined) {
+  if (getIdUtente != null) {
     console.log(getIdUtente);
     user.classList.remove('d-none');
     user.classList.add('d-block');

@@ -49,7 +49,7 @@ let login = document.querySelector(".login");
 
 function logged() {
   let getIdUtente = localStorage.getItem("idUtente");
-  if (getIdUtente != null || getIdUtente == 0 || getIdUtente === undefined) {
+  if (getIdUtente != null) {
     console.log(getIdUtente);
     user.classList.remove("d-none");
     user.classList.add("d-block");

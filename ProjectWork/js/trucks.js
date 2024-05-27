@@ -25,7 +25,8 @@ function stampa(array) {
       let genere1 = marchio.genere;
 
  marchio.foodtrucks.forEach(element => {
-    if (element.disponibilità == true) {
+    if (element.disponibilita == true) {
+      
       all.innerHTML += `<div class="card m-4 col-lg-3 col-md-4 col-sm-6 mb-4 cardTrue" data-id="${element.id}">
   <div class="card-body  p-0 ">
   <div class="box-image" style="height: 100%;">
@@ -44,8 +45,9 @@ function stampa(array) {
   <div class=" categoria  ms-auto col-4">${genere1}</div>
   </div>
   </div>`;
-      
+      console.log('vero', element.disponibilita);
     } else {
+      console.log('falso', element.disponibilita);
       all.innerHTML += `<div class="card m-4 col-lg-3 col-md-4 col-sm-6 mb-4" data-id="${element.id}">
   <div class="card-body  p-0 ">
   <div class="box-image" style="height: 100%;">
@@ -64,7 +66,6 @@ function stampa(array) {
   <div class=" categoria  ms-auto col-4">${genere1}</div>
   </div>
   </div>`;
-
     }
 
   });
@@ -98,7 +99,7 @@ let login = document.querySelector('.login');
 function logged() {
 
   let getIdUtente = localStorage.getItem('idUtente');
-  if (getIdUtente != null || getIdUtente == 0 || getIdUtente === undefined) {
+  if (getIdUtente != null) {
     console.log(getIdUtente);
     user.classList.remove('d-none');
     user.classList.add('d-block');

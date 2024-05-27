@@ -1,7 +1,7 @@
 let containerVideo = document.querySelector(".containerVideo");
 let title = document.querySelector(".title");
 let containerPiatti = document.querySelector(".container");
-
+let btnAcquista = document.querySelectorAll('.btnAcquista');
 
 
 
@@ -538,13 +538,13 @@ function descrizioneBreve() {
 
   let cardText = document.querySelectorAll('.card-text');
   cardText.forEach(desc => {
-    console.log(cardText);
+    // console.log(cardText);
     let descrizione = desc.textContent.trim();
     if (descrizione.length > 30) {
-      console.log(descrizione.length);
+      // console.log(descrizione.length);
       desc.textContent = descrizione.substring(0, 30);
       desc.textContent += '...';
-      console.log(desc.textContent);
+      // console.log(desc.textContent);
     }
 
   });
@@ -556,10 +556,11 @@ let carrello = document.querySelector('.carrello');
 let logout = document.querySelector('.logout');
 let login = document.querySelector('.login');
 
+
 function logged() {
 
   let getIdUtente = localStorage.getItem('idUtente');
-  if (getIdUtente != null || getIdUtente == 0 || getIdUtente === undefined) {
+  if (getIdUtente != null) {
     console.log(getIdUtente);
     user.classList.remove('d-none');
     user.classList.add('d-block');
@@ -568,6 +569,8 @@ function logged() {
     logout.classList.remove('d-none');
     logout.classList.add('d-block');
     login.classList.add('d-none');
+    
+
   } else {
     console.log(55);
     user.classList.add('d-none');
@@ -575,6 +578,7 @@ function logged() {
     logout.classList.add('d-none');
     login.classList.remove('d-none');
     login.classList.add('d-block');
+    
   }
 
 }
