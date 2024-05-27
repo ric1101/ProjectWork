@@ -29,6 +29,7 @@ let nuovoUtente = {};
 console.log(JSON.stringify(nuovoUtente));
 
 function login() {
+    event.preventDefault();
     nuovoUtente = new Utente(
         email.value,
         password.value
