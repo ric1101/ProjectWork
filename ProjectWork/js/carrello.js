@@ -52,7 +52,9 @@ function popolaCarrello() {
                         price += data.prezzoListino;
                         divTotaleOrdine.innerHTML = `<h4> Totale ordine: ${price.toFixed(2)} € </h4>`;
                         divProdotti.innerHTML = carrelloHtml;
+                        localStorage.setItem('totaleCarrello', JSON.stringify(price));
                         cancellaProdotto();
+
                     })
 
             });
