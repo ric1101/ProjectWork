@@ -37,7 +37,10 @@ function inviaPaginaDisponibilita() {
 }
 inviaPaginaDisponibilita();
 
-
+let user = document.querySelector('.user');
+let carrello = document.querySelector('.carrello');
+let logout = document.querySelector('.logout');
+let login = document.querySelector('.login');
 
 function logged() {
 
@@ -76,3 +79,10 @@ function contoCarrello() {
 }
 contoCarrello();
 
+
+function logOut() {
+  localStorage.removeItem('idUtente');
+  logged();
+}
+
+logout.addEventListener('click', logOut);
