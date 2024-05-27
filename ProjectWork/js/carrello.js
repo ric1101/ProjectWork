@@ -50,7 +50,7 @@ function popolaCarrello() {
 
                         carrelloHtml += piatto;
                         price += data.prezzoListino;
-                        divTotaleOrdine.innerHTML = `<h4> Totale ordine: ${price} € </h4>`;
+                        divTotaleOrdine.innerHTML = `<h4> Totale ordine: ${price.toFixed(2)} € </h4>`;
                         divProdotti.innerHTML = carrelloHtml;
                         cancellaProdotto();
                     })

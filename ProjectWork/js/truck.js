@@ -178,7 +178,7 @@ function stampaTruck(piatti) {
               ${element.descrizione}
               </div>
               <div class="card-text">
-              ${element.prezzoListino}
+              ${element.prezzoListino} €
             </div>
                 <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
             </div>
@@ -198,7 +198,7 @@ function stampaTruck(piatti) {
                       ${element.descrizione}
                      </div>
                      <div class="card-text">
-                     ${element.prezzoListino}
+                     ${element.prezzoListino} €
                    </div>
                        <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
                    </div>
@@ -217,7 +217,7 @@ function stampaTruck(piatti) {
                       ${element.descrizione}
                      </div>
                      <div class="card-text">
-                     ${element.prezzoListino}
+                     ${element.prezzoListino} €
                    </div>
                        <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
                    </div>
@@ -236,7 +236,7 @@ function stampaTruck(piatti) {
                       ${element.descrizione}
                      </div>
                      <div class="card-text">
-                     ${element.prezzoListino}
+                     ${element.prezzoListino} €
                    </div>
                        <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
                    </div>
@@ -255,7 +255,7 @@ function stampaTruck(piatti) {
                       ${element.descrizione}
                      </div>
                      <div class="card-text">
-                     ${element.prezzoListino}
+                     ${element.prezzoListino} €
                    </div>
                        <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
                    </div>
@@ -274,7 +274,7 @@ function stampaTruck(piatti) {
                       ${element.descrizione}
                      </div>
                      <div class="card-text">
-                     ${element.prezzoListino}
+                     ${element.prezzoListino} €
                    </div>
                        <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
                    </div>
@@ -293,7 +293,7 @@ function stampaTruck(piatti) {
                       ${element.descrizione}
                      </div>
                      <div class="card-text">
-                     ${element.prezzoListino}
+                     ${element.prezzoListino} €
                    </div>
                        <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
                    </div>
@@ -312,7 +312,7 @@ function stampaTruck(piatti) {
                       ${element.descrizione}
                      </div>
                      <div class="card-text">
-                     ${element.prezzoListino}
+                     ${element.prezzoListino} €
                    </div>
                        <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
                    </div>
@@ -331,7 +331,7 @@ function stampaTruck(piatti) {
                       ${element.descrizione}
                      </div>
                      <div class="card-text">
-                     ${element.prezzoListino}
+                     ${element.prezzoListino} €
                    </div>
                        <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
                    </div>

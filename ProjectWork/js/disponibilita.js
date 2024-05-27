@@ -27,7 +27,7 @@ function stampa(array, marchio, genere) {
   let genere1 = genere;
   array.forEach(element => {
     if (element.disponibilità == true) {
-      all.innerHTML += `<div class="card m-4 col-lg-3 col-md-4 col-sm-6 mb-4" data-id="${element.id}" data-nome="${element.nome}">
+      all.innerHTML += `<div class="card m-4 col-lg-3 col-md-4 col-sm-6 mb-4 cardTrue" data-id="${element.id}" data-nome="${element.nome}">
       <div class="card-body  p-0 ">
       <div class="box-image" style="height: 100%;">
       
@@ -74,7 +74,7 @@ function stampa(array, marchio, genere) {
 
 
 function inviaAlDettaglioTruck() {
-  let card = document.querySelectorAll('.card');
+  let card = document.querySelectorAll('.cardTrue');
   console.log(card);
   card.forEach(btn => {
     btn.addEventListener('click', function(){
