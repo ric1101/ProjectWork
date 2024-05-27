@@ -63,6 +63,7 @@ function logged() {
   }
 
 }
+logged();
 
 let arrayCarrello = [];
 let numeroArticoli = document.querySelector('#numeroArticoli');
