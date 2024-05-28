@@ -219,7 +219,7 @@ function stampaTruck(piatti) {
               <div class="card-text">
               ${element.prezzoListino} €
             </div>
-                <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
+                <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Aggiungi al carrello</a>
             </div>
         </div>`;
 
@@ -239,7 +239,7 @@ function stampaTruck(piatti) {
                      <div class="card-text">
                      ${element.prezzoListino} €
                    </div>
-                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
+                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Aggiungi al carrello</a>
                    </div>
                </div>`;
     } else if (portata === "BEVANDA" && bevanda >= 1) {
@@ -258,7 +258,7 @@ function stampaTruck(piatti) {
                      <div class="card-text">
                      ${element.prezzoListino} €
                    </div>
-                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
+                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Aggiungi al carrello</a>
                    </div>
                </div>`;
     } else if (portata === "DOLCE" && dolce >= 1) {
@@ -277,7 +277,7 @@ function stampaTruck(piatti) {
                      <div class="card-text">
                      ${element.prezzoListino} €
                    </div>
-                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
+                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Aggiungi al carrello</a>
                    </div>
                </div>`;
     } else if (portata === "SPECIALITÀ" && specialita >= 1) {
@@ -296,7 +296,7 @@ function stampaTruck(piatti) {
                      <div class="card-text">
                      ${element.prezzoListino} €
                    </div>
-                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
+                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Aggiungi al carrello</a>
                    </div>
                </div>`;
     } else if (portata === "CONTORNO" && contorno >= 1) {
@@ -315,7 +315,7 @@ function stampaTruck(piatti) {
                      <div class="card-text">
                      ${element.prezzoListino} €
                    </div>
-                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
+                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Aggiungi al carrello</a>
                    </div>
                </div>`;
     } else if (portata === "FRITTO" && fritto >= 1) {
@@ -334,7 +334,7 @@ function stampaTruck(piatti) {
                      <div class="card-text">
                      ${element.prezzoListino} €
                    </div>
-                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
+                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Aggiungi al carrello</a>
                    </div>
                </div>`;
     } else if (portata === "KEBAB" && kebab >= 1) {
@@ -353,7 +353,7 @@ function stampaTruck(piatti) {
                      <div class="card-text">
                      ${element.prezzoListino} €
                    </div>
-                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
+                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Aggiungi al carrello</a>
                    </div>
                </div>`;
     } else if (portata === "POKE" && poke >= 1) {
@@ -372,7 +372,7 @@ function stampaTruck(piatti) {
                      <div class="card-text">
                      ${element.prezzoListino} €
                    </div>
-                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
+                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Aggiungi al carrello</a>
                    </div>
                </div>`;
     } else if (portata === "NIGIRI" && nigiri >= 1) {
@@ -391,7 +391,7 @@ function stampaTruck(piatti) {
                      <div class="card-text">
                      ${element.prezzoListino} €
                    </div>
-                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
+                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Aggiungi al carrello</a>
                    </div>
                </div>`;
     } else if (portata === "GUNKAN" && gunkan >= 1) {
@@ -410,7 +410,7 @@ function stampaTruck(piatti) {
                      <div class="card-text">
                      ${element.prezzoListino} €
                    </div>
-                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
+                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Aggiungi al carrello</a>
                    </div>
                </div>`;
     } else if (portata === "HOSOMAKI" && hosomaki >= 1) {
@@ -429,7 +429,7 @@ function stampaTruck(piatti) {
                      <div class="card-text">
                      ${element.prezzoListino} €
                    </div>
-                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
+                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Aggiungi al carrello</a>
                    </div>
                </div>`;
     } else if (portata === "SASHIMI" && sashimi >= 1) {
@@ -448,7 +448,7 @@ function stampaTruck(piatti) {
                      <div class="card-text">
                      ${element.prezzoListino} €
                    </div>
-                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
+                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Aggiungi al carrello</a>
                    </div>
                </div>`;
     } else if (portata === "SALSE" && salse >= 1) {
@@ -467,7 +467,7 @@ function stampaTruck(piatti) {
                      <div class="card-text">
                      ${element.prezzoListino} €
                    </div>
-                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
+                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Aggiungi al carrello</a>
                    </div>
                </div>`;
     }
