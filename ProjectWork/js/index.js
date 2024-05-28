@@ -41,8 +41,9 @@ let logout = document.querySelector('.logout');
 let login = document.querySelector('.login');
 
 function logged() {
-
+  
   let getIdUtente = localStorage.getItem('idUtente');
+  
   if (getIdUtente != null) {
     console.log(getIdUtente);
     user.classList.remove('d-none');
@@ -52,6 +53,7 @@ function logged() {
     logout.classList.remove('d-none');
     logout.classList.add('d-block');
     login.classList.add('d-none');
+    
   } else {
     console.log(55);
     user.classList.add('d-none');
@@ -69,6 +71,7 @@ function logOut() {
   localStorage.removeItem('arrayIdOggetto');
   localStorage.removeItem('arrayId');
   localStorage.removeItem('totaleCarrello');
+  // localStorage.removeItem('ruolo', ruolo);
   console.log('ciao');
   logged();
 }
@@ -98,3 +101,28 @@ function contoCarrello() {
 
 }
 contoCarrello();
+
+// let ruolo = "";
+
+// function ottieniRuolo() {
+
+//   let idUtente = localStorage.getItem('idUtente');
+    
+  
+//   fetch(`http://localhost:8080/api/utenti/${idUtente}`)
+//       .then((res) => res.json())
+//       .then((data) => {
+//           console.log(data.ruolo);
+
+//           ruolo = JSON.stringify(data.ruolo);
+//           localStorage.setItem('ruolo', ruolo);
+
+//           if (ruolo == 'ADMIN') {
+
+//           } else if (ruolo == "USER") {
+            
+//           }
+//         });
+//         } 
+// }
+// ottieniRuolo();

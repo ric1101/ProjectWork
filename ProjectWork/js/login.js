@@ -45,6 +45,11 @@ function login() {
 
     })
         .then(response => {
+            console.log(response);
+
+
+
+
 
             if (response.ok) {
                 fetch(`http://localhost:8080/api/utenti/email/${email.value}`)
@@ -56,11 +61,17 @@ function login() {
                         let id = JSON.stringify(data.id);
                         localStorage.setItem('idUtente', id);
                     });
+                    
+                } else {
+                    errore.innerHTML = 'email o password errati';
+                }
 
-            } else {
-                errore.innerHTML = 'email o password errati';
-            }
+
+
             console.log(nuovoUtente);
+
         });
 }
 button.addEventListener('click', login);
+
+
