@@ -2,8 +2,7 @@ let richiesti = document.querySelectorAll(".richiesti");
 let modal = document.querySelector(".modal");
 let chiudi = document.querySelector(".close");
 let paga = document.querySelector(".paga");
-const form = document.querySelector(".needs-validation");
-const forms = document.querySelectorAll(".needs-validation");
+
 
 console.log(richiesti);
 function pagato() {
@@ -20,6 +19,10 @@ function pagato() {
 }
 
 function chiusura() {
+  localStorage.removeItem('id-truck');
+  localStorage.removeItem('arrayId');
+  localStorage.removeItem('arrayIdOggetto');
+  localStorage.removeItem('totaleCarrello');
   modal.classList.remove("d-block");
   window.location.href = "index.html";
 }
@@ -30,16 +33,12 @@ chiudi.addEventListener("click", chiusura);
 paga.addEventListener("click", function (event) {
   event.preventDefault(); // Previeni l'invio predefinito del form
 
-  // Esegui la validazione del form
-  if (form.checkValidity()) {
-    // Se il form è valido, mostra il modal
-    modal.classList.add("d-block");
     pagato();
+    inviaOrdine();
+
+    modal.classList.add("d-block");
     localStorage.removeItem("arrayId");
-  } else {
-    // Se il form non è valido, mostra gli errori di validazione
-    form.classList.add("was-validated");
-  }
+  
 });
 
 let user = document.querySelector(".user");
@@ -176,4 +175,4 @@ function dataIt(dataSQL) {
     body: JSON.stringify(nuovoOrdine),
   });
 }
-inviaOrdine();
+
