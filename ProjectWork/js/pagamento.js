@@ -125,7 +125,7 @@ let nuovoOrdine = {};
 console.log(JSON.stringify(nuovoOrdine));
 
 function inviaOrdine() {
-  let numeroOrdine = 875289;
+  
   numeroOrdine++;
   console.log(numeroOrdine);
 
