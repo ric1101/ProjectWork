@@ -50,6 +50,10 @@
   a {
     text-decoration: none;
   }
+
+  a:hover {
+    text-decoration: none;
+  }
   
   .scurita{
     filter: grayscale(100%);

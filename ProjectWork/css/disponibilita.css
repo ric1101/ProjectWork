@@ -54,3 +54,7 @@ a {
 .scurita{
   filter: grayscale(100%);
 }
+
+a:hover {
+  text-decoration: none;
+}

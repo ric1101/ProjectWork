@@ -27,9 +27,6 @@ body {
     background: #ffffff;
 }
 
-a {
-    text-decoration: none;
-}
 
 /* Card Styles */
 
@@ -140,4 +137,12 @@ a {
 
 .btnAcquista:focus {
     background-color: #009943;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: none;
   }

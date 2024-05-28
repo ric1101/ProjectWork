@@ -18,6 +18,9 @@
     text-decoration: none;
   }
 
+  a:hover {
+    text-decoration: none;
+  }
 
 body {
     font-family: 'Roboto', sans-serif;
