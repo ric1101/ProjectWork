@@ -89,9 +89,8 @@ function stampaTruck(piatti) {
   let kebab = 0;
   let poke = 0;
   let nigiri = 0;
-  let uramaki = 0;
+  let gunkan = 0;
   let hosomaki = 0;
-  let temaki = 0;
   let sashimi = 0;
   let salse = 0;
 
@@ -173,12 +172,12 @@ function stampaTruck(piatti) {
         </div>`;
       nigiri++;
 
-    } else if (portata === "URAMAKI" && uramaki < 1) {
-      containerPiatti.innerHTML += `<h2 class="mt-4">URAMAKI</h2>
-        <div class="row uramaki">
+    } else if (portata === "GUNKAN" && gunkan < 1) {
+      containerPiatti.innerHTML += `<h2 class="mt-4">GUNKAN</h2>
+        <div class="row gunkan">
          
         </div>`;
-      uramaki++;
+      gunkan++;
 
     } else if (portata === "HOSOMAKI" && hosomaki < 1) {
       containerPiatti.innerHTML += `<h2 class="mt-4">HOSOMAKI</h2>
@@ -186,13 +185,6 @@ function stampaTruck(piatti) {
          
         </div>`;
       hosomaki++;
-
-    } else if (portata === "TEMAKI" && temaki < 1) {
-      containerPiatti.innerHTML += `<h2 class="mt-4">TEMAKI</h2>
-        <div class="row temaki">
-         
-        </div>`;
-      temaki++;
 
     } else if (portata === "SASHIMI" && sashimi < 1) {
       containerPiatti.innerHTML += `<h2 class="mt-4">SASHIMI</h2>
@@ -208,7 +200,7 @@ function stampaTruck(piatti) {
         </div>`;
       salse++;
 
-    }
+    } 
 
     console.log(panino);
 
@@ -403,9 +395,9 @@ function stampaTruck(piatti) {
                        <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
                    </div>
                </div>`;
-    } else if (portata === "URAMAKI" && uramaki >= 1) {
-      let uraDiv = document.querySelector(".uramaki");
-      uraDiv.innerHTML += `<div class="col-md-3 mt-4">
+    } else if (portata === "GUNKAN" && gunkan >= 1) {
+      let gunDiv = document.querySelector(".gunkan");
+      gunDiv.innerHTML += `<div class="col-md-3 mt-4">
                  <div class="card-sl active reveal fade-top">
                      <div class="card-image text-center">
                          <img src="${element.immagine}" />
@@ -425,25 +417,6 @@ function stampaTruck(piatti) {
     } else if (portata === "HOSOMAKI" && hosomaki >= 1) {
       let hosDiv = document.querySelector(".hosomaki");
       hosDiv.innerHTML += `<div class="col-md-3 mt-4">
-                 <div class="card-sl active reveal fade-top">
-                     <div class="card-image text-center">
-                         <img src="${element.immagine}" />
-                     </div>
-                     <div class="card-heading">
-                         ${element.nome}
-                     </div>
-                     <div class="card-text">
-                      ${element.descrizione}
-                     </div>
-                     <div class="card-text">
-                     ${element.prezzoListino} €
-                   </div>
-                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Acquista</a>
-                   </div>
-               </div>`;
-    } else if (portata === "TEMAKI" && temaki >= 1) {
-      let temDiv = document.querySelector(".temaki");
-      temDiv.innerHTML += `<div class="col-md-3 mt-4">
                  <div class="card-sl active reveal fade-top">
                      <div class="card-image text-center">
                          <img src="${element.immagine}" />
@@ -578,6 +551,7 @@ function logged() {
     logout.classList.add('d-none');
     login.classList.remove('d-none');
     login.classList.add('d-block');
+    
     
   }
 
