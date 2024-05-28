@@ -3,6 +3,32 @@ let carrello = document.querySelector('.carrello');
 let logout = document.querySelector('.logout');
 let login = document.querySelector('.login');
 
+
+let nomeCognome = document.querySelector('.nomeCognome');
+let nome = document.querySelector('.nome');
+let cognome = document.querySelector('.cognome');
+let dataNascita = document.querySelector('.dataNascita');
+let role = document.querySelector('.role');
+let email = document.querySelector('.email');
+
+
+function userView() {
+  let idUtente = localStorage.getItem('idUtente');
+  const URLT = `http://localhost:8080/api/utenti/${idUtente}`;
+
+  fetch(URLT)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      nomeCognome.innerHTML = data.nome + data.cognome;
+      nome.innerHTML = data.nome;
+      cognome.innerHTML = data.cognome;
+      dataNascita.innerHTML = data.data_nascita;
+      role.innerHTML = data.ruolo;
+      email.innerHTML = data.email;
+    });
+
+}
 function logged() {
 
   let getIdUtente = localStorage.getItem('idUtente');
@@ -15,6 +41,7 @@ function logged() {
     logout.classList.remove('d-none');
     logout.classList.add('d-block');
     login.classList.add('d-none');
+    userView();
   } else {
     console.log(55);
     user.classList.add('d-none');
@@ -52,8 +79,9 @@ function contoCarrello() {
   numeroArticoli.innerHTML = numProdotti;
 
   if (numProdotti == 0) {
-      numeroArticoli.innerHTML = null;
+    numeroArticoli.innerHTML = null;
   }
 
 }
 contoCarrello();
+

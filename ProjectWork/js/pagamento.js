@@ -124,11 +124,34 @@ let nuovoOrdine = {};
 
 console.log(JSON.stringify(nuovoOrdine));
 
-function inviaOrdine() {
+async function inviaOrdine() {
+  let numOrder = 0;
+  //FUNZIONE DATA ITALIANA
+  function dataIt(dataSQL) {
+    let data = new Date(dataSQL);
   
-  numeroOrdine++;
-  console.log(numeroOrdine);
+    let giorno = String(data.getDate()).padStart(2, "0");
+    let mese = String(data.getMonth() + 1).padStart(2, "0");
+    let anno = String(data.getFullYear());
+  
+    let dataFormattata = `${anno}-${mese}-${giorno}`
+  
+    return dataFormattata;
+  }
 
+
+  const URLT = `http://localhost:8080/api/ordini`;
+
+  await fetch(URLT)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data); 
+      data.forEach(element => {
+        numOrder = element.numero_ordine;
+        console.log(numOrder);
+      });
+    });
+    numOrder++;
   let idUtente = JSON.parse(localStorage.getItem('idUtente'));
   let idTruck = JSON.parse(localStorage.getItem('id-truck'));
   let prodottiOrdine = JSON.parse(localStorage.getItem('arrayIdOggetto'));
@@ -138,19 +161,7 @@ function inviaOrdine() {
   console.log(totaleCarrelloFixed);
 
 
-//FUNZIONE DATA ITALIANA
-function dataIt(dataSQL) {
-  let data = new Date(dataSQL);
-
-  let giorno = String(data.getDate()).padStart(2, "0");
-  let mese = String(data.getMonth() + 1).padStart(2, "0");
-  let anno = String(data.getFullYear());
-
-  let dataFormattata = `${anno}-${mese}-${giorno}`
-
-  return dataFormattata;
-}
-
+  
 
 
   let URLORDER = `http://localhost:8080/api/ordini/utente/${idUtente}/truck/${idTruck}`;
@@ -158,7 +169,7 @@ function dataIt(dataSQL) {
 
   nuovoOrdine = new Ordine(
     dataIt(dataOggi),
-    numeroOrdine,
+    numOrder,
     totaleParsato,
     prodottiOrdine,
     idUtente,
