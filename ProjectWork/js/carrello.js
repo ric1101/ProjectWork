@@ -76,7 +76,7 @@ function popolaCarrello() {
 popolaCarrello();
 
 function cancellaProdotto() {
-    
+
     let arrayCarrello = JSON.parse(localStorage.getItem('arrayId'));
 
 
@@ -108,23 +108,30 @@ checkout.addEventListener('click', function () {
 
 });
 
+let carr = 0;
+
 function vaiAlPagamento() {
     let carrelloPienoVuoto = JSON.parse(localStorage.getItem('arrayId'));
-    
+
     console.log('ciao', carrelloPienoVuoto);
-    
 
-    if (carrelloPienoVuoto.length !== 0) {
-
-        checkout.classList.remove('disabled');
-
-    } else if (carrelloPienoVuoto == null) {
+    if (carrelloPienoVuoto === null) {
 
         checkout.classList.add('disabled');
-    
     } else {
         checkout.classList.add('disabled');
-    } 
+
+        if (carrelloPienoVuoto.length == 0) {
+            checkout.classList.add('disabled');
+
+        } else {
+            checkout.classList.remove('disabled');
+
+        }
+
+    }
+
+
 }
 vaiAlPagamento();
 

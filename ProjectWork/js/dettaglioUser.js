@@ -66,22 +66,26 @@ function logOut() {
 
 logout.addEventListener('click', logOut);
 
-
 let arrayCarrello = [];
 let numeroArticoli = document.querySelector('#numeroArticoli');
 let numProdotti = 0;
 
 function contoCarrello() {
-  console.log(numProdotti);
+    console.log(numProdotti);
 
-  arrayCarrello = JSON.parse(localStorage.getItem('arrayId'));
+    arrayCarrello = JSON.parse(localStorage.getItem('arrayId'));
+    console.log(arrayCarrello);
 
-  numProdotti = arrayCarrello.length;
-  numeroArticoli.innerHTML = numProdotti;
+    if (arrayCarrello !== null) {
 
-  if (numProdotti == 0) {
-    numeroArticoli.innerHTML = null;
-  }
+        numProdotti = arrayCarrello.length;
+    }
+    console.log(numProdotti);
+    numeroArticoli.innerHTML = numProdotti;
+
+    if (numProdotti == 0) {
+        numeroArticoli.innerHTML = null;
+    }
 
 }
 contoCarrello();

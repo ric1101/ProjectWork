@@ -595,18 +595,23 @@ function mostraModal() {
   let arrayCarrello = [];
   let numeroArticoli = document.querySelector('#numeroArticoli');
   let numProdotti = 0;
-
+  
   function contoCarrello() {
-    console.log(numProdotti);
-
-    arrayCarrello = JSON.parse(localStorage.getItem('arrayId'));
-
-    numProdotti = arrayCarrello.length;
-    numeroArticoli.innerHTML = numProdotti;
-
-    if (numProdotti == 0) {
-      numeroArticoli.innerHTML = null;
-    }
-
+      console.log(numProdotti);
+  
+      arrayCarrello = JSON.parse(localStorage.getItem('arrayId'));
+      console.log(arrayCarrello);
+  
+      if (arrayCarrello !== null) {
+  
+          numProdotti = arrayCarrello.length;
+      }
+      console.log(numProdotti);
+      numeroArticoli.innerHTML = numProdotti;
+  
+      if (numProdotti == 0) {
+          numeroArticoli.innerHTML = null;
+      }
+  
   }
   contoCarrello();
