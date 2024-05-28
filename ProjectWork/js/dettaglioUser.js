@@ -20,7 +20,7 @@ function userView() {
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
-      nomeCognome.innerHTML = data.nome + data.cognome;
+      nomeCognome.innerHTML = data.nome + ' ' + data.cognome;
       nome.innerHTML = data.nome;
       cognome.innerHTML = data.cognome;
       dataNascita.innerHTML = data.data_nascita;
@@ -49,6 +49,7 @@ function logged() {
     logout.classList.add('d-none');
     login.classList.remove('d-none');
     login.classList.add('d-block');
+    window.location.href = 'index.html';
   }
 
 }

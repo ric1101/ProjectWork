@@ -138,3 +138,6 @@ a {
     }
 }
 
+.btnAcquista:focus {
+    background-color: #009943;
+  }

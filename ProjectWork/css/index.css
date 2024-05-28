@@ -107,7 +107,7 @@ h1, h2, h3 {
   width: auto;
   flex-direction: column;
   
-  background: linear-gradient(90deg, #009942ab 0%, #90c136 52%, #FFCC00 100%);
+  background: #ffcc0098;
 }
   
 .video {
@@ -132,7 +132,7 @@ h1, h2, h3 {
 }
 
 .testo-video p {
-  font-size: large;
+  font-size: x-large;
 }
 
 @media screen and (min-width: 991px) {
@@ -177,3 +177,9 @@ h1, h2, h3 {
   width: 80%;
 
 }
+
+.container-logo {
+  background-color: #314d4d;
+  border-radius: 12px;
+}
+

@@ -14,7 +14,7 @@ let divTotaleOrdine = document.querySelector('#totale-ordini');
 function popolaCarrello() {
     let price = 0;
     let arrayCarrello = JSON.parse(localStorage.getItem('arrayId'));
-    
+
     if (arrayCarrello == 0) {
         localStorage.removeItem('totaleCarrello');
     }
@@ -76,11 +76,11 @@ function popolaCarrello() {
 popolaCarrello();
 
 function cancellaProdotto() {
-
+    
     let arrayCarrello = JSON.parse(localStorage.getItem('arrayId'));
-    
-    
-    
+
+
+
     let arrayCarrelloOggetto = JSON.parse(localStorage.getItem('arrayIdOggetto'));
     let cestino = document.querySelectorAll('.cestino');
     cestino.forEach(btn => {
@@ -94,6 +94,7 @@ function cancellaProdotto() {
             localStorage.setItem('arrayIdOggetto', JSON.stringify(arrayCarrelloOggetto));
             popolaCarrello();
             contoCarrello();
+            vaiAlPagamento();
         });
 
     });
@@ -103,19 +104,31 @@ function cancellaProdotto() {
 let checkout = document.querySelector('.checkout');
 
 checkout.addEventListener('click', function () {
-    vaiAlPagamento();
+    window.location.href = 'pagamento.html';
 
 });
 
 function vaiAlPagamento() {
     let carrelloPienoVuoto = JSON.parse(localStorage.getItem('arrayId'));
-    if (carrelloPienoVuoto != '') {
+    
+    console.log('ciao', carrelloPienoVuoto);
+    
+
+    if (carrelloPienoVuoto.length !== 0) {
+
         checkout.classList.remove('disabled');
-        window.location.href = 'pagamento.html';
+
+    } else if (carrelloPienoVuoto == null) {
+
+        checkout.classList.add('disabled');
+    
     } else {
         checkout.classList.add('disabled');
-    }
+    } 
 }
+vaiAlPagamento();
+
+
 
 
 
@@ -126,36 +139,36 @@ let login = document.querySelector('.login');
 
 function logged() {
 
-  let getIdUtente = localStorage.getItem('idUtente');
-  if (getIdUtente != null) {
-    console.log(getIdUtente);
-    user.classList.remove('d-none');
-    user.classList.add('d-block');
-    carrello.classList.remove('d-none');
-    carrello.classList.add('d-block');
-    logout.classList.remove('d-none');
-    logout.classList.add('d-block');
-    login.classList.add('d-none');
-  } else {
-    console.log(55);
-    user.classList.add('d-none');
-    carrello.classList.add('d-none');
-    logout.classList.add('d-none');
-    login.classList.remove('d-none');
-    login.classList.add('d-block');
-  }
+    let getIdUtente = localStorage.getItem('idUtente');
+    if (getIdUtente != null) {
+        console.log(getIdUtente);
+        user.classList.remove('d-none');
+        user.classList.add('d-block');
+        carrello.classList.remove('d-none');
+        carrello.classList.add('d-block');
+        logout.classList.remove('d-none');
+        logout.classList.add('d-block');
+        login.classList.add('d-none');
+    } else {
+        console.log(55);
+        user.classList.add('d-none');
+        carrello.classList.add('d-none');
+        logout.classList.add('d-none');
+        login.classList.remove('d-none');
+        login.classList.add('d-block');
+    }
 
 }
 logged();
 
 function logOut() {
-  localStorage.removeItem('idUtente');
-  localStorage.removeItem('arrayIdOggetto');
-  localStorage.removeItem('arrayId');
-  localStorage.removeItem('totaleCarrello');
-  window.location.href = 'index.html';
-  console.log('ciao');
-  logged();
+    localStorage.removeItem('idUtente');
+    localStorage.removeItem('arrayIdOggetto');
+    localStorage.removeItem('arrayId');
+    localStorage.removeItem('totaleCarrello');
+    window.location.href = 'index.html';
+    console.log('ciao');
+    logged();
 }
 
 logout.addEventListener('click', logOut);
@@ -166,21 +179,21 @@ let numeroArticoli = document.querySelector('#numeroArticoli');
 let numProdotti = 0;
 
 function contoCarrello() {
-  console.log(numProdotti);
+    console.log(numProdotti);
 
-  arrayCarrello = JSON.parse(localStorage.getItem('arrayId'));
-  console.log(arrayCarrello);
+    arrayCarrello = JSON.parse(localStorage.getItem('arrayId'));
+    console.log(arrayCarrello);
 
-  if (arrayCarrello !== null) {
+    if (arrayCarrello !== null) {
 
-      numProdotti = arrayCarrello.length;
-  }
-  console.log(numProdotti);
+        numProdotti = arrayCarrello.length;
+    }
+    console.log(numProdotti);
     numeroArticoli.innerHTML = numProdotti;
 
-  if (numProdotti == 0) {
-      numeroArticoli.innerHTML = null;
-  }
+    if (numProdotti == 0) {
+        numeroArticoli.innerHTML = null;
+    }
 
 }
 contoCarrello();
