@@ -22,15 +22,15 @@ function inviaPaginaDisponibilita() {
   let filtri = document.querySelectorAll('.filtro');
   console.log(filtri);
   filtri.forEach(btn => {
-      btn.addEventListener('click', function () {
-          const id = btn.getAttribute('data-id');
-          const nome = btn.getAttribute('data-nome');
-          console.log(id);
-          console.log(nome);
-          localStorage.setItem('id', JSON.stringify(id));
-          localStorage.setItem('nome', JSON.stringify(nome));
-          window.location.href = 'disponibilita.html';
-      });
+    btn.addEventListener('click', function () {
+      const id = btn.getAttribute('data-id');
+      const nome = btn.getAttribute('data-nome');
+      console.log(id);
+      console.log(nome);
+      localStorage.setItem('id', JSON.stringify(id));
+      localStorage.setItem('nome', JSON.stringify(nome));
+      window.location.href = 'disponibilita.html';
+    });
   });
 }
 inviaPaginaDisponibilita();
@@ -39,11 +39,12 @@ let user = document.querySelector('.user');
 let carrello = document.querySelector('.carrello');
 let logout = document.querySelector('.logout');
 let login = document.querySelector('.login');
+let admin = document.querySelector('.admin');
 
 function logged() {
-  
+
   let getIdUtente = localStorage.getItem('idUtente');
-  
+
   if (getIdUtente != null) {
     console.log(getIdUtente);
     user.classList.remove('d-none');
@@ -53,7 +54,7 @@ function logged() {
     logout.classList.remove('d-none');
     logout.classList.add('d-block');
     login.classList.add('d-none');
-    
+
   } else {
     console.log(55);
     user.classList.add('d-none');
@@ -64,7 +65,7 @@ function logged() {
   }
 
 }
-logged();
+
 
 function logOut() {
   localStorage.removeItem('idUtente');
@@ -83,46 +84,73 @@ let numeroArticoli = document.querySelector('#numeroArticoli');
 let numProdotti = 0;
 
 function contoCarrello() {
-    console.log(numProdotti);
+  console.log(numProdotti);
 
-    arrayCarrello = JSON.parse(localStorage.getItem('arrayId'));
-    console.log(arrayCarrello);
+  arrayCarrello = JSON.parse(localStorage.getItem('arrayId'));
+  console.log(arrayCarrello);
 
-    if (arrayCarrello !== null) {
+  if (arrayCarrello !== null) {
 
-        numProdotti = arrayCarrello.length;
-    }
-    console.log(numProdotti);
-    numeroArticoli.innerHTML = numProdotti;
+    numProdotti = arrayCarrello.length;
+  }
+  console.log(numProdotti);
+  numeroArticoli.innerHTML = numProdotti;
 
-    if (numProdotti == 0) {
-        numeroArticoli.innerHTML = null;
-    }
+  if (numProdotti == 0) {
+    numeroArticoli.innerHTML = null;
+  }
 
 }
 contoCarrello();
 
-// let ruolo = "";
+let ruolo = "";
 
-// function ottieniRuolo() {
+function ottieniRuolo() {
 
-//   let idUtente = localStorage.getItem('idUtente');
+  let idUtente = localStorage.getItem('idUtente');
+
+
+  fetch(`http://localhost:8080/api/utenti/${idUtente}`)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data.ruolo);
+
+      ruolo = data.ruolo;
+      localStorage.setItem('ruolo', ruolo);
     
-  
-//   fetch(`http://localhost:8080/api/utenti/${idUtente}`)
-//       .then((res) => res.json())
-//       .then((data) => {
-//           console.log(data.ruolo);
+    
+    console.log(ruolo);
+  if (ruolo === "USER") {
+    console.log('si');
+    logged();
+  } else if (ruolo === "ADMIN") {
+    loggedAdmin();
+  }
+});
 
-//           ruolo = JSON.stringify(data.ruolo);
-//           localStorage.setItem('ruolo', ruolo);
+}
+ottieniRuolo();
 
-//           if (ruolo == 'ADMIN') {
+function loggedAdmin() {
+  let getIdUtente = localStorage.getItem('idUtente');
 
-//           } else if (ruolo == "USER") {
-            
-//           }
-//         });
-//         } 
-// }
-// ottieniRuolo();
+  if (getIdUtente != null) {
+    console.log(getIdUtente);
+    user.classList.remove('d-none');
+    user.classList.add('d-block');
+    admin.classList.remove('d-none');
+    admin.classList.add('d-block');
+    logout.classList.remove('d-none');
+    logout.classList.add('d-block');
+    login.classList.add('d-none');
+
+  } else {
+    console.log(55);
+    user.classList.add('d-none');
+    logout.classList.add('d-none');
+    admin.classList.add('d-none');
+    login.classList.remove('d-none');
+    login.classList.add('d-block');
+  }
+
+}
