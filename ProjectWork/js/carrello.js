@@ -15,6 +15,9 @@ function popolaCarrello() {
     let price = 0;
     let arrayCarrello = JSON.parse(localStorage.getItem('arrayId'));
     
+    if (arrayCarrello == 0) {
+        localStorage.removeItem('totaleCarrello');
+    }
 
     if (arrayCarrello != null) {
 
@@ -75,6 +78,9 @@ popolaCarrello();
 function cancellaProdotto() {
 
     let arrayCarrello = JSON.parse(localStorage.getItem('arrayId'));
+    
+    
+    
     let arrayCarrelloOggetto = JSON.parse(localStorage.getItem('arrayIdOggetto'));
     let cestino = document.querySelectorAll('.cestino');
     cestino.forEach(btn => {
@@ -144,6 +150,10 @@ logged();
 
 function logOut() {
   localStorage.removeItem('idUtente');
+  localStorage.removeItem('arrayIdOggetto');
+  localStorage.removeItem('arrayId');
+  localStorage.removeItem('totaleCarrello');
+  window.location.href = 'index.html';
   console.log('ciao');
   logged();
 }

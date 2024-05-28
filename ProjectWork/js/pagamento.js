@@ -71,6 +71,10 @@ logged();
 
 function logOut() {
   localStorage.removeItem("idUtente");
+  localStorage.removeItem('arrayIdOggetto');
+  localStorage.removeItem('arrayId');
+  localStorage.removeItem('totaleCarrello');
+  window.location.href = 'index.html';
   console.log("ciao");
   logged();
 }

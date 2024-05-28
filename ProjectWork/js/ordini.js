@@ -94,6 +94,9 @@ logged();
 
 function logOut() {
   localStorage.removeItem('idUtente');
+  localStorage.removeItem('arrayIdOggetto');
+  localStorage.removeItem('arrayId');
+  localStorage.removeItem('totaleCarrello');
   console.log('ciao');
   logged();
 }

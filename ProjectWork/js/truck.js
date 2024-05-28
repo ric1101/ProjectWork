@@ -1,7 +1,6 @@
 let containerVideo = document.querySelector(".containerVideo");
 let title = document.querySelector(".title");
 let containerPiatti = document.querySelector(".container");
-let btnAcquista = document.querySelectorAll('.btnAcquista');
 
 
 
@@ -200,7 +199,7 @@ function stampaTruck(piatti) {
         </div>`;
       salse++;
 
-    } 
+    }
 
     console.log(panino);
 
@@ -474,114 +473,140 @@ function stampaTruck(piatti) {
     }
   });
   descrizioneBreve();
-  inviaAlCarrello();
+  if (logged()) {
+    console.log('loggato');
+    inviaAlCarrello();
+  } else {
+    console.log('non loggato');
+    mostraModal();
+    
+         
+  }
+  
 }
 
 
-let arrayIdOggetto = [];
-let arrayId = [];
-
-function inviaAlCarrello() {
-
+function mostraModal() {
   let btnAcquista = document.querySelectorAll('.btnAcquista');
-  let controlloStorage = JSON.parse(localStorage.getItem('arrayId'));
-  let controlloStorageOggetto = JSON.parse(localStorage.getItem('arrayIdOggetto'));
+  let modal = document.querySelector(".modal");
   console.log(btnAcquista);
-  if (controlloStorage && controlloStorageOggetto) {
-    arrayId = controlloStorage;
-    arrayIdOggetto = controlloStorageOggetto;
+  btnAcquista.forEach((element) => {
+    element.addEventListener('click', function() {
+      console.log('dentro modal');
+      modal.classList.remove('d-none');
+      modal.classList.add('d-block');
+
+    })
+  })
+}
+
+  let arrayIdOggetto = [];
+  let arrayId = [];
+
+  function inviaAlCarrello() {
+
+    let btnAcquista = document.querySelectorAll('.btnAcquista');
+    let controlloStorage = JSON.parse(localStorage.getItem('arrayId'));
+    let controlloStorageOggetto = JSON.parse(localStorage.getItem('arrayIdOggetto'));
+    console.log(btnAcquista);
+    if (controlloStorage && controlloStorageOggetto) {
+      arrayId = controlloStorage;
+      arrayIdOggetto = controlloStorageOggetto;
+    }
+    btnAcquista.forEach(btn => {
+      btn.addEventListener('click', function () {
+        let id = btn.getAttribute('data-id');
+        let idParsato = parseInt(id);
+        let oggettoId = { 'id': idParsato };
+        arrayIdOggetto.push(oggettoId);
+        arrayId.push(id);
+        localStorage.setItem('arrayIdOggetto', JSON.stringify(arrayIdOggetto));
+        localStorage.setItem('arrayId', JSON.stringify(arrayId));
+        contoCarrello();
+
+      });
+
+    });
   }
-  btnAcquista.forEach(btn => {
-    btn.addEventListener('click', function () {
-      let id = btn.getAttribute('data-id');
-      let idParsato = parseInt(id);
-      let oggettoId = { 'id': idParsato };
-      arrayIdOggetto.push(oggettoId);
-      arrayId.push(id);
-      localStorage.setItem('arrayIdOggetto', JSON.stringify(arrayIdOggetto));
-      localStorage.setItem('arrayId', JSON.stringify(arrayId));
-      contoCarrello();
+
+  function descrizioneBreve() {
+
+    let cardText = document.querySelectorAll('.card-text');
+    cardText.forEach(desc => {
+      // console.log(cardText);
+      let descrizione = desc.textContent.trim();
+      if (descrizione.length > 30) {
+        // console.log(descrizione.length);
+        desc.textContent = descrizione.substring(0, 30);
+        desc.textContent += '...';
+        // console.log(desc.textContent);
+      }
 
     });
 
-  });
-}
+  }
 
-function descrizioneBreve() {
+  let user = document.querySelector('.user');
+  let carrello = document.querySelector('.carrello');
+  let logout = document.querySelector('.logout');
+  let login = document.querySelector('.login');
 
-  let cardText = document.querySelectorAll('.card-text');
-  cardText.forEach(desc => {
-    // console.log(cardText);
-    let descrizione = desc.textContent.trim();
-    if (descrizione.length > 30) {
-      // console.log(descrizione.length);
-      desc.textContent = descrizione.substring(0, 30);
-      desc.textContent += '...';
-      // console.log(desc.textContent);
+
+  function logged(parametro) {
+
+    let getIdUtente = localStorage.getItem('idUtente');
+    if (getIdUtente != null) {
+      console.log(getIdUtente);
+      user.classList.remove('d-none');
+      user.classList.add('d-block');
+      carrello.classList.remove('d-none');
+      carrello.classList.add('d-block');
+      logout.classList.remove('d-none');
+      logout.classList.add('d-block');
+      login.classList.add('d-none');
+      return true;
+
+    } else {
+      console.log(55);
+      user.classList.add('d-none');
+      carrello.classList.add('d-none');
+      logout.classList.add('d-none');
+      login.classList.remove('d-none');
+      login.classList.add('d-block');
+      return false;
+
     }
 
-  });
-
-}
-
-let user = document.querySelector('.user');
-let carrello = document.querySelector('.carrello');
-let logout = document.querySelector('.logout');
-let login = document.querySelector('.login');
-
-
-function logged() {
-
-  let getIdUtente = localStorage.getItem('idUtente');
-  if (getIdUtente != null) {
-    console.log(getIdUtente);
-    user.classList.remove('d-none');
-    user.classList.add('d-block');
-    carrello.classList.remove('d-none');
-    carrello.classList.add('d-block');
-    logout.classList.remove('d-none');
-    logout.classList.add('d-block');
-    login.classList.add('d-none');
-    
-
-  } else {
-    console.log(55);
-    user.classList.add('d-none');
-    carrello.classList.add('d-none');
-    logout.classList.add('d-none');
-    login.classList.remove('d-none');
-    login.classList.add('d-block');
-    
-    
   }
-
-}
-logged();
-
-function logOut() {
-  localStorage.removeItem('idUtente');
-  console.log('ciao');
   logged();
-}
 
-logout.addEventListener('click', logOut);
-
-
-let arrayCarrello = [];
-let numeroArticoli = document.querySelector('#numeroArticoli');
-let numProdotti = 0;
-
-function contoCarrello() {
-  console.log(numProdotti);
-
-  arrayCarrello = JSON.parse(localStorage.getItem('arrayId'));
-
-  numProdotti = arrayCarrello.length;
-  numeroArticoli.innerHTML = numProdotti;
-
-  if (numProdotti == 0) {
-    numeroArticoli.innerHTML = null;
+  function logOut() {
+    localStorage.removeItem('idUtente');
+    localStorage.removeItem('arrayIdOggetto');
+    localStorage.removeItem('arrayId');
+    localStorage.removeItem('totaleCarrello');
+    console.log('ciao');
+    logged();
   }
 
-}
-contoCarrello();
+  logout.addEventListener('click', logOut);
+
+
+  let arrayCarrello = [];
+  let numeroArticoli = document.querySelector('#numeroArticoli');
+  let numProdotti = 0;
+
+  function contoCarrello() {
+    console.log(numProdotti);
+
+    arrayCarrello = JSON.parse(localStorage.getItem('arrayId'));
+
+    numProdotti = arrayCarrello.length;
+    numeroArticoli.innerHTML = numProdotti;
+
+    if (numProdotti == 0) {
+      numeroArticoli.innerHTML = null;
+    }
+
+  }
+  contoCarrello();
