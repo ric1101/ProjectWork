@@ -120,3 +120,8 @@ a:hover {
   border: solid 5px;
   border-color: #FFCC00
 }
+
+.container-logo {
+  background-color: #314d4d;
+  border-radius: 12px;
+}

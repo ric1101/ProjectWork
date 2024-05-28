@@ -58,3 +58,8 @@
   .scurita{
     filter: grayscale(100%);
   }
+
+  .container-logo {
+    background-color: #314d4d;
+    border-radius: 12px;
+  }

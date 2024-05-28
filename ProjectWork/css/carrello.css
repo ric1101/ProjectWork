@@ -5,3 +5,8 @@ a {
   a:hover {
     text-decoration: none;
   }
+
+  .container-logo {
+    background-color: #314d4d;
+    border-radius: 12px;
+  }
