@@ -45,7 +45,7 @@
               </a>
             </li>
             <li class="nav-item admin d-none">
-              <a class="nav-link" href="http://localhost:8080/login" target="_blank">Admin</a>
+              <a class="nav-link" href="http://localhost:8080/home" target="_blank">Admin</a>
             </li>
             <li class="nav-item logout d-none">
               <a class="nav-link" href="./index.html">Logout</a>
@@ -88,8 +88,8 @@
 
         <div class="col-md-6">
           <label for="validationCustom08" class="form-label">Numero della carta</label>
-          <input type="text" pattern="\d{4}-\d{4}-\d{4}-\d{4}" class="form-control richiesti" id="validationCustom08"
-            maxlength="19" placeholder="Numero della carta" required>
+          <input type="text" class="form-control richiesti" id="validationCustom08" maxlength="16"
+            placeholder="Numero della carta" required>
           <div class="invalidNumber text-danger">
 
           </div>
@@ -123,6 +123,7 @@
       </div>
       <div class="col-12">
         <button type="submit" class="btn btn-primary paga">Paga</button>
+        <div class="datiMancanti text-danger mt-2"></div>
       </div>
     </form>
     <div class="container-foto p-5">

@@ -12,7 +12,7 @@ function verificaInserimenti() {
   let inputNumero = document.getElementById("validationCustom08");
   let inputScadenza = document.getElementById("validationCustom09");
   let inputCvv = document.getElementById("validationCustom10");
-
+  let datiMancanti = document.querySelector(".datiMancanti");
 
 
   if (inputNome.value.length === 0 ||
@@ -22,10 +22,11 @@ function verificaInserimenti() {
     inputScadenza.value.length === 0 ||
     inputCvv.value.length === 0
   ) {
-
+    datiMancanti.innerHTML = "Compilare tutti i campi!";
     modal.classList.add("d-none");
 
   } else {
+    datiMancanti.innerHTML = "";
     pagato();
   }
 }
@@ -39,6 +40,8 @@ function pagato() {
   let invalidScandenza = document.querySelector('.invalidScadenza');
   let invalidCvv = document.querySelector('.invalidCvv');
   console.log("Funzione pagato chiamata");
+
+
 
 
 
