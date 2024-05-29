@@ -44,14 +44,14 @@ function pagato() {
 
 
 
+  let numCartaValue = numCarta.value.replace(/-/g, '');
 
 
-
-  if (numCarta.value.length !== 16) {
+  if (numCartaValue.length !== 16) {
     invalidNumber.innerHTML = 'Numero non valido';
     modal.classList.add("d-none");
 
-  } else if (scadenza.value.length !== 5) {
+  } else if (scadenza.value.length !== 5 || !/^(0[1-9]|1[0-2])\/\d{2}$/.test(scadenza.value)) {
     invalidScandenza.innerHTML = 'Scadenza non valida';
     modal.classList.add("d-none");
 
@@ -97,6 +97,70 @@ paga.addEventListener("click", function (event) {
   localStorage.removeItem("arrayId");
 
 });
+
+/*---------------  VALIDAZIONE  E FORMATTAZIONE PERSONALIZZATA INPUT ----------------*/
+
+//CONTROLLO CARTA DI CREDITO E FORMATTAZIONE PERSONALIZZATA
+document.getElementById('validationCustom08').addEventListener('input', function (e) {
+  let value = e.target.value.replace(/\D/g, '');
+  let valoreFormattato = value.replace(/(.{4})/g, '$1-').trim();
+  e.target.value = valoreFormattato.slice(0, 19);
+  console.log(value.length)
+  validazioneNumeroCarta(e.target);
+});
+//CONTROLLO SCADENZA E FORMATTAZIONE PERSONALIZZATA
+document.getElementById('validationCustom09').addEventListener('input', function (e) {
+  let value = e.target.value.replace(/\D/g, '');
+  if (value.length > 2) {
+    value = value.slice(0, 2) + '/' + value.slice(2);
+  }
+  e.target.value = value.slice(0, 5);
+  validazioneDataScadenza(e.target);
+});
+//CONTROLLO CVV E FORMATTAZIONE PERSONALIZZATA
+document.getElementById('validationCustom10').addEventListener('input', function (e) {
+  let value = e.target.value.replace(/\D/g, '');
+  e.target.value = value.slice(0, 3);
+  validazioneCvv(e.target);
+});
+
+//COLORE LIVE NUMERO CARTA
+function validazioneNumeroCarta(input) {
+  let value = input.value.replace(/-/g, '');
+  if (value.length === 16) {
+    input.classList.remove('nonValido');
+    input.classList.add('valido');
+  } else {
+    input.classList.remove('valido');
+    input.classList.add('nonValido');
+  }
+}
+//COLORE LIVE DATA SCADENZA
+function validazioneDataScadenza(input) {
+  let value = input.value;
+  if (/^(0[1-9]|1[0-2])\/\d{2}$/.test(value)) {
+    input.classList.remove('nonValido');
+    input.classList.add('valido');
+  } else {
+    input.classList.remove('valido');
+    input.classList.add('nonValido');
+  }
+}
+//COLORE LIVE CVV
+function validazioneCvv(input) {
+  let value = input.value;
+  if (/^\d{3}$/.test(value)) {
+    input.classList.remove('nonValido');
+    input.classList.add('valido');
+  } else {
+    input.classList.remove('valido');
+    input.classList.add('nonValido');
+  }
+}
+
+
+
+/*--------------- ----------------------------------------------------------------------*/
 
 let user = document.querySelector('.user');
 let carrello = document.querySelector('.carrello');
