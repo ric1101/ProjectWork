@@ -531,7 +531,7 @@ function stampaTruck(piatti) {
   let getIdUtente = localStorage.getItem('idUtente');
   let ruolo = localStorage.getItem('ruolo');
   
-  if (getIdUtente != null || ruolo != 'USER') {
+  if (getIdUtente !== null && ruolo !== 'ADMIN') {
     console.log('loggato');
     inviaAlCarrello();
 
