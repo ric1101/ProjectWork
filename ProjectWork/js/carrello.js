@@ -12,28 +12,28 @@ let nessunProdotto = `<div class="card rounded-3 mb-4" style="background-color: 
 let divTotaleOrdine = document.querySelector('#totale-ordini');
 
 function popolaCarrello() {
-    let price = 0;
-    let arrayCarrello = JSON.parse(localStorage.getItem('arrayId'));
+  let price = 0;
+  let arrayCarrello = JSON.parse(localStorage.getItem('arrayId'));
 
-    if (arrayCarrello == 0) {
-        localStorage.removeItem('totaleCarrello');
-    }
+  if (arrayCarrello == 0) {
+    localStorage.removeItem('totaleCarrello');
+  }
 
-    if (arrayCarrello != null) {
+  if (arrayCarrello != null) {
 
-        if (arrayCarrello.length > 0) {
-            let carrelloHtml = '';
+    if (arrayCarrello.length > 0) {
+      let carrelloHtml = '';
 
-            console.log(arrayCarrello);
-            arrayCarrello.forEach(element => {
-                console.log(element)
-                const URLPIATTI = `http://localhost:8080/api/piatti/piatto/${element}`;
-                fetch(URLPIATTI)
+      console.log(arrayCarrello);
+      arrayCarrello.forEach(element => {
+        console.log(element)
+        const URLPIATTI = `http://localhost:8080/api/piatti/piatto/${element}`;
+        fetch(URLPIATTI)
 
-                    .then(res => res.json())
-                    .then((data) => {
-                        // console.log(data, "sono il data");
-                        let piatto = `<div class="card rounded-3 mb-4">
+          .then(res => res.json())
+          .then((data) => {
+            // console.log(data, "sono il data");
+            let piatto = `<div class="card rounded-3 mb-4">
                 <div class="card-body p-4">
                 <div class="row d-flex justify-content-between align-items-center">
                 <div class="col-md-2 col-lg-2 col-xl-2">
@@ -43,7 +43,7 @@ function popolaCarrello() {
                 <p class="lead fw-normal mb-2">${data.nome}</p>
                 </div>
                 <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                <h5 class="mb-0">${data.prezzoListino} €</h5>
+                <h5 class="mb-0">${data.prezzoListino.toFixed(2)} €</h5>
                 </div>
                 <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                 <a href="#!" class="text-danger"><i class="cestino fas fa-trash fa-lg" data-id="${data.id}"></i></a>
@@ -52,84 +52,84 @@ function popolaCarrello() {
                 </div>
                 </div>`;
 
-                        carrelloHtml += piatto;
-                        price += data.prezzoListino;
-                        divTotaleOrdine.innerHTML = `<h4> Totale ordine: ${price.toFixed(2)} € </h4>`;
-                        divProdotti.innerHTML = carrelloHtml;
-                        localStorage.setItem('totaleCarrello', JSON.stringify(price));
-                        cancellaProdotto();
+            carrelloHtml += piatto;
+            price += data.prezzoListino;
+            divTotaleOrdine.innerHTML = `<h4> Totale ordine: ${price.toFixed(2)} € </h4>`;
+            divProdotti.innerHTML = carrelloHtml;
+            localStorage.setItem('totaleCarrello', JSON.stringify(price));
+            cancellaProdotto();
 
-                    })
+          })
 
-            });
-        } else {
-            divProdotti.innerHTML = nessunProdotto;
-            divTotaleOrdine.innerHTML = `<h4> Totale ordine: ${price} € </h4>`;
-        }
+      });
     } else {
-        divProdotti.innerHTML = nessunProdotto;
-        divTotaleOrdine.innerHTML = `<h4> Totale ordine: ${price} € </h4>`;
-
+      divProdotti.innerHTML = nessunProdotto;
+      divTotaleOrdine.innerHTML = `<h4> Totale ordine: ${price} € </h4>`;
     }
+  } else {
+    divProdotti.innerHTML = nessunProdotto;
+    divTotaleOrdine.innerHTML = `<h4> Totale ordine: ${price} € </h4>`;
+
+  }
 
 }
 popolaCarrello();
 
 function cancellaProdotto() {
 
-    let arrayCarrello = JSON.parse(localStorage.getItem('arrayId'));
+  let arrayCarrello = JSON.parse(localStorage.getItem('arrayId'));
 
 
 
-    let arrayCarrelloOggetto = JSON.parse(localStorage.getItem('arrayIdOggetto'));
-    let cestino = document.querySelectorAll('.cestino');
-    cestino.forEach(btn => {
-        btn.addEventListener('click', function () {
-            const id = btn.getAttribute('data-id');
-            let elementoEliminare = arrayCarrello.indexOf(id);
-            arrayCarrello.splice(elementoEliminare, 1);
-            arrayCarrelloOggetto.splice(elementoEliminare, 1);
-            console.log(id);
-            localStorage.setItem('arrayId', JSON.stringify(arrayCarrello));
-            localStorage.setItem('arrayIdOggetto', JSON.stringify(arrayCarrelloOggetto));
-            popolaCarrello();
-            contoCarrello();
-            vaiAlPagamento();
-        });
-
+  let arrayCarrelloOggetto = JSON.parse(localStorage.getItem('arrayIdOggetto'));
+  let cestino = document.querySelectorAll('.cestino');
+  cestino.forEach(btn => {
+    btn.addEventListener('click', function () {
+      const id = btn.getAttribute('data-id');
+      let elementoEliminare = arrayCarrello.indexOf(id);
+      arrayCarrello.splice(elementoEliminare, 1);
+      arrayCarrelloOggetto.splice(elementoEliminare, 1);
+      console.log(id);
+      localStorage.setItem('arrayId', JSON.stringify(arrayCarrello));
+      localStorage.setItem('arrayIdOggetto', JSON.stringify(arrayCarrelloOggetto));
+      popolaCarrello();
+      contoCarrello();
+      vaiAlPagamento();
     });
+
+  });
 
 }
 
 let checkout = document.querySelector('.checkout');
 
 checkout.addEventListener('click', function () {
-    window.location.href = 'pagamento.html';
+  window.location.href = 'pagamento.html';
 
 });
 
 let carr = 0;
 
 function vaiAlPagamento() {
-    let carrelloPienoVuoto = JSON.parse(localStorage.getItem('arrayId'));
+  let carrelloPienoVuoto = JSON.parse(localStorage.getItem('arrayId'));
 
-    console.log('ciao', carrelloPienoVuoto);
+  console.log('ciao', carrelloPienoVuoto);
 
-    if (carrelloPienoVuoto === null) {
+  if (carrelloPienoVuoto === null) {
 
-        checkout.classList.add('disabled');
+    checkout.classList.add('disabled');
+  } else {
+    checkout.classList.add('disabled');
+
+    if (carrelloPienoVuoto.length == 0) {
+      checkout.classList.add('disabled');
+
     } else {
-        checkout.classList.add('disabled');
-
-        if (carrelloPienoVuoto.length == 0) {
-            checkout.classList.add('disabled');
-
-        } else {
-            checkout.classList.remove('disabled');
-
-        }
+      checkout.classList.remove('disabled');
 
     }
+
+  }
 
 
 }
@@ -175,7 +175,7 @@ function logOut() {
   localStorage.removeItem('arrayIdOggetto');
   localStorage.removeItem('arrayId');
   localStorage.removeItem('totaleCarrello');
-  
+
   let ruolo = localStorage.getItem('ruolo');
   console.log(ruolo);
   if (ruolo === "USER") {
@@ -207,14 +207,14 @@ function ottieniRuolo() {
 
     //     console.log(ruolo);
     let ruolo = localStorage.getItem('ruolo');
-        if (ruolo === "USER") {
-          console.log('si');
-          logged();
-        } else if (ruolo === "ADMIN") {
-          loggedAdmin();
-        }
-      }/*)*/;
-  }
+    if (ruolo === "USER") {
+      console.log('si');
+      logged();
+    } else if (ruolo === "ADMIN") {
+      loggedAdmin();
+    }
+  }/*)*/;
+}
 
 // }
 ottieniRuolo();
@@ -250,21 +250,21 @@ let numeroArticoli = document.querySelector('#numeroArticoli');
 let numProdotti = 0;
 
 function contoCarrello() {
-    console.log(numProdotti);
+  console.log(numProdotti);
 
-    arrayCarrello = JSON.parse(localStorage.getItem('arrayId'));
-    console.log(arrayCarrello);
+  arrayCarrello = JSON.parse(localStorage.getItem('arrayId'));
+  console.log(arrayCarrello);
 
-    if (arrayCarrello !== null) {
+  if (arrayCarrello !== null) {
 
-        numProdotti = arrayCarrello.length;
-    }
-    console.log(numProdotti);
-    numeroArticoli.innerHTML = numProdotti;
+    numProdotti = arrayCarrello.length;
+  }
+  console.log(numProdotti);
+  numeroArticoli.innerHTML = numProdotti;
 
-    if (numProdotti == 0) {
-        numeroArticoli.innerHTML = null;
-    }
+  if (numProdotti == 0) {
+    numeroArticoli.innerHTML = null;
+  }
 
 }
 contoCarrello();
