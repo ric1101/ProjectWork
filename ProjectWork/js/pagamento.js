@@ -4,18 +4,47 @@ let chiudi = document.querySelector(".close");
 let paga = document.querySelector(".paga");
 
 
-console.log(richiesti);
-function pagato() {
-  console.log("Funzione pagato chiamata");
+function verificaInserimenti() {
   richiesti.forEach((element) => {
     if (element.value == "") {
       console.log(element.value);
-
       modal.classList.add("d-none");
+
     } else {
-      modal.classList.add("d-block");
+      pagato();
     }
   });
+}
+
+console.log(richiesti);
+function pagato() {
+  let numCarta = document.querySelector('#validationCustom08');
+  let scadenza = document.querySelector('#validationCustom09');
+  let cvv = document.querySelector('#validationCustom10');
+  let invalidNumber = document.querySelector('.invalidNumber');
+  let invalidScandenza = document.querySelector('.invalidScandenza');
+  let invalidCvv = document.querySelector('.invalidCvv');
+  console.log("Funzione pagato chiamata");
+
+
+  if (numCarta.value.length !== 16) {
+    invalidNumber.innerHTML = 'Numero non valido';
+    modal.classList.add("d-none");
+
+  } else if (scadenza.value.length !== 5) {
+    invalidScandenza.innerHTML = 'Scadenza non valida';
+    modal.classList.add("d-none");
+
+  } else if (cvv.value.length !== 3) {
+    invalidCvv.innerHTML = 'Cvv non valido';
+    modal.classList.add("d-none");
+
+  } else {
+    modal.classList.add("d-block");
+    inviaOrdine();
+
+  }
+
 }
 
 function chiusura() {
@@ -33,12 +62,12 @@ chiudi.addEventListener("click", chiusura);
 paga.addEventListener("click", function (event) {
   event.preventDefault(); // Previeni l'invio predefinito del form
 
-    pagato();
-    inviaOrdine();
+  verificaInserimenti();
 
-    modal.classList.add("d-block");
-    localStorage.removeItem("arrayId");
-  
+
+  modal.classList.add("d-block");
+  localStorage.removeItem("arrayId");
+
 });
 
 let user = document.querySelector('.user');
@@ -78,7 +107,7 @@ function logOut() {
   localStorage.removeItem('arrayIdOggetto');
   localStorage.removeItem('arrayId');
   localStorage.removeItem('totaleCarrello');
-  
+
   let ruolo = localStorage.getItem('ruolo');
   console.log(ruolo);
   if (ruolo === "USER") {
@@ -110,14 +139,14 @@ function ottieniRuolo() {
 
     //     console.log(ruolo);
     let ruolo = localStorage.getItem('ruolo');
-        if (ruolo === "USER") {
-          console.log('si');
-          logged();
-        } else if (ruolo === "ADMIN") {
-          loggedAdmin();
-        }
-      }/*)*/;
-  }
+    if (ruolo === "USER") {
+      console.log('si');
+      logged();
+    } else if (ruolo === "ADMIN") {
+      loggedAdmin();
+    }
+  }/*)*/;
+}
 
 // }
 ottieniRuolo();
@@ -150,21 +179,21 @@ let numeroArticoli = document.querySelector('#numeroArticoli');
 let numProdotti = 0;
 
 function contoCarrello() {
-    console.log(numProdotti);
+  console.log(numProdotti);
 
-    arrayCarrello = JSON.parse(localStorage.getItem('arrayId'));
-    console.log(arrayCarrello);
+  arrayCarrello = JSON.parse(localStorage.getItem('arrayId'));
+  console.log(arrayCarrello);
 
-    if (arrayCarrello !== null) {
+  if (arrayCarrello !== null) {
 
-        numProdotti = arrayCarrello.length;
-    }
-    console.log(numProdotti);
-    numeroArticoli.innerHTML = numProdotti;
+    numProdotti = arrayCarrello.length;
+  }
+  console.log(numProdotti);
+  numeroArticoli.innerHTML = numProdotti;
 
-    if (numProdotti == 0) {
-        numeroArticoli.innerHTML = null;
-    }
+  if (numProdotti == 0) {
+    numeroArticoli.innerHTML = null;
+  }
 
 }
 contoCarrello();
@@ -200,13 +229,13 @@ async function inviaOrdine() {
   //FUNZIONE DATA ITALIANA
   function dataIt(dataSQL) {
     let data = new Date(dataSQL);
-  
+
     let giorno = String(data.getDate()).padStart(2, "0");
     let mese = String(data.getMonth() + 1).padStart(2, "0");
     let anno = String(data.getFullYear());
-  
+
     let dataFormattata = `${anno}-${mese}-${giorno}`
-  
+
     return dataFormattata;
   }
 
@@ -216,13 +245,13 @@ async function inviaOrdine() {
   await fetch(URLT)
     .then((res) => res.json())
     .then((data) => {
-      console.log(data); 
+      console.log(data);
       data.forEach(element => {
         numOrder = element.numero_ordine;
         console.log(numOrder);
       });
     });
-    numOrder++;
+  numOrder++;
   let idUtente = JSON.parse(localStorage.getItem('idUtente'));
   let idTruck = JSON.parse(localStorage.getItem('id-truck'));
   let prodottiOrdine = JSON.parse(localStorage.getItem('arrayIdOggetto'));
@@ -232,7 +261,7 @@ async function inviaOrdine() {
   console.log(totaleCarrelloFixed);
 
 
-  
+
 
 
   let URLORDER = `http://localhost:8080/api/ordini/utente/${idUtente}/truck/${idTruck}`;
@@ -246,9 +275,9 @@ async function inviaOrdine() {
     idUtente,
     idTruck
   );
- 
+
   console.log(JSON.stringify(nuovoOrdine));
-  
+
   fetch(URLORDER, {
     method: "POST",
     headers: {

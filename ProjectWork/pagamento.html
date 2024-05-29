@@ -3,26 +3,27 @@
 
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Checkout</title>
+  <title>Checkout</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./css/pagamento.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./css/pagamento.css">
 </head>
 
 <body>
   <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
       <div class="container-fluid">
-        <div class="container-logo"><a href="index.html"><img src="./img/TruckwaY.png" alt="Logo" width="180" height="auto"></a></div>
+        <div class="container-logo"><a href="index.html"><img src="./img/TruckwaY.png" alt="Logo" width="180"
+              height="auto"></a></div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -39,7 +40,8 @@
               <a class="nav-link" href="./login.html">Login</a>
             </li>
             <li class="nav-item user d-none" style="padding: 8px;">
-              <a href="./dettaglioUser.html"><i class="fa-solid fa-circle-user" style="color: #cacbcc; font-size: 25px;"></i>
+              <a href="./dettaglioUser.html"><i class="fa-solid fa-circle-user"
+                  style="color: #cacbcc; font-size: 25px;"></i>
               </a>
             </li>
             <li class="nav-item admin d-none">
@@ -62,84 +64,91 @@
   </header>
 
 
-    <div class="container p-5 d-flex">
-        <form class="row g-3 p-5">
-            <h1>Pagamento</h1>
-            <div class="col-md-6">
-                <label for="validationCustom01" class="form-label">Nome</label>
-                <input type="text" class="form-control richiesti" id="validationCustom01" placeholder="Nome"
-                    aria-label="Nome" maxLength="58"  required>
-            </div>
-            <div class="col-md-6">
-                <label for="validationCustom02" class="form-label">Cognome</label>
-                <input type="text" class="form-control richiesti" id="validationCustom02" placeholder="Cognome"
-                    aria-label="Cognome" maxLength="40" required>
-            </div>
+  <div class="container p-5 d-flex">
+    <form class="row g-3 p-5">
+      <h1>Pagamento</h1>
+      <div class="col-md-6">
+        <label for="validationCustom01" class="form-label">Nome</label>
+        <input type="text" class="form-control richiesti" id="validationCustom01" placeholder="Nome" aria-label="Nome"
+          maxLength="58" required>
+      </div>
+      <div class="col-md-6">
+        <label for="validationCustom02" class="form-label">Cognome</label>
+        <input type="text" class="form-control richiesti" id="validationCustom02" placeholder="Cognome"
+          aria-label="Cognome" maxLength="40" required>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label for="validationCustom07" class="form-label">Titolare della carta</label>
+          <input type="text" class="form-control richiesti" id="validationCustom07" placeholder="Nome Cognome"
+            maxLength="50" required>
+          <small class="text-muted">Nome completo del titolare della carta</small>
+        </div>
+
+        <div class="col-md-6">
+          <label for="validationCustom08" class="form-label">Numero della carta</label>
+          <input type="number" class="form-control richiesti" id="validationCustom08" placeholder="Numero della carta"
+            required>
+          <div class="invalidNumber text-danger">
             
-            <div class="row g-3">
-                <div class="col-md-6">
-                    <label for="validationCustom07" class="form-label">Titolare della carta</label>
-                    <input type="text" class="form-control richiesti" id="validationCustom07" placeholder="Nome Cognome"
-                    maxLength="50"  required>
-                    <small class="text-muted">Nome completo del titolare della carta</small>
-                </div>
-
-                <div class="col-md-6">
-                    <label for="validationCustom08" class="form-label">Numero della carta</label>
-                    <input type="number" class="form-control richiesti" id="validationCustom08" placeholder="Numero della carta" required>
-                </div>
-
-                <div class="col-md-3">
-                    <label for="validationCustom09" class="form-label">Scadenza</label>
-                    <input type="number" class="form-control richiesti" id="validationCustom09" placeholder="MM/YYYY"
-                    required>                    
-                </div>
-
-                <div class="col-md-3">
-                    <label for="validationCustom10" class="form-label">CVV</label>
-                    <input type="number" class="form-control richiesti" id="validationCustom10" placeholder="***" required>
-                    </div>
-                <div class="col-md-6">
-                    <div class="form-check">
-                        <input id="credit" name="paymentMethod" type="radio" class="form-check-input richiesti"
-                            checked="" required>
-                        <label class="form-check-label" for="credit">Carta di Credito</label>
-                    </div>
-                    <div class="form-check">
-                        <input id="debit" name="paymentMethod" type="radio" class="form-check-input richiesti"
-                            required="">
-                        <label class="form-check-label" for="debit">Carta di Debito</label>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12">
-                <button type="submit" class="btn btn-primary paga">Paga</button>
-            </div>
-        </form>
-        <div class="container-foto p-5">
-            <img src="./img/carrello.png" alt="carrello" class="img-fluid">
-
+          </div>
         </div>
-        <div class="modal" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Ordine Confermato</h5>
-                    </div>
-                    <div class="modal-body">
-                        <p>Grazie per aver acquistato su TruckwaY!</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary close" data-dismiss="modal">Continua ad
-                            acquistare</button>
-                    </div>
-                </div>
-            </div>
+
+        <div class="col-md-3">
+          <label for="validationCustom09" class="form-label">Scadenza</label>
+          <input type="text" class="form-control richiesti" id="validationCustom09" placeholder="MM/YY" required>
+          <div class="invalidScadenza text-danger">
+            
+          </div>
         </div>
+
+        <div class="col-md-3">
+          <label for="validationCustom10" class="form-label">CVV</label>
+          <input type="number" class="form-control richiesti" id="validationCustom10" placeholder="***" required>
+          <div class="invalidCvv text-danger">
+            
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-check">
+            <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked="" required>
+            <label class="form-check-label" for="credit">Carta di Credito</label>
+          </div>
+          <div class="form-check">
+            <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required="">
+            <label class="form-check-label" for="debit">Carta di Debito</label>
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary paga">Paga</button>
+      </div>
+    </form>
+    <div class="container-foto p-5">
+      <img src="./img/carrello.png" alt="carrello" class="img-fluid">
+
     </div>
+    <div class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Ordine Confermato</h5>
+          </div>
+          <div class="modal-body">
+            <p>Grazie per aver acquistato su TruckwaY!</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary close" data-dismiss="modal">Continua ad
+              acquistare</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
-   <!-- Footer -->
+  <!-- Footer -->
   <footer class="text-center text-lg-start text-dark" style="background-color: #009942ab">
 
     <!-- Section: Links  -->
@@ -225,11 +234,11 @@
   <!-- Footer -->
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="./js/pagamento.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="./js/pagamento.js"></script>
 </body>
 
 </html>
