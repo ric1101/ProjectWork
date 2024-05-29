@@ -2,6 +2,7 @@ let richiesti = document.querySelectorAll(".richiesti");
 let modal = document.querySelector(".modal");
 let chiudi = document.querySelector(".close");
 let paga = document.querySelector(".paga");
+let numOrderModal = document.querySelector(".numOrdine")
 
 
 function verificaInserimenti() {
@@ -337,23 +338,31 @@ async function inviaOrdine() {
   await fetch(URLT)
     .then((res) => res.json())
     .then((data) => {
+      data.sort((a, b) => b.numero_ordine - a.numero_ordine);
+      let ultimoOrdine = data[0].numero_ordine;
+      console.log(ultimoOrdine, "numero ultimo ordine")
+      let ultimoOrdineIncrementato = ultimoOrdine + 1;
+      console.log(ultimoOrdineIncrementato, "ultimo ordine incremento")
+      localStorage.setItem('numeroOrdine', ultimoOrdineIncrementato);
+
       console.log(data);
-      data.forEach(element => {
-        numOrder = element.numero_ordine;
-        console.log(numOrder);
-      });
+      // data.forEach(element => {
+      //   numOrder = element.numero_ordine;
+      //   console.log(numOrder, "sono il numero ordine");
+      // });
     });
   numOrder++;
   let idUtente = JSON.parse(localStorage.getItem('idUtente'));
   let idTruck = JSON.parse(localStorage.getItem('id-truck'));
   let prodottiOrdine = JSON.parse(localStorage.getItem('arrayIdOggetto'));
   let totaleCarrello = JSON.parse(localStorage.getItem('totaleCarrello'));
+  let numeroOrdine = JSON.parse(localStorage.getItem('numeroOrdine'));
   let totaleCarrelloFixed = totaleCarrello.toFixed(2);
   let totaleParsato = parseInt(totaleCarrelloFixed);
   console.log(totaleCarrelloFixed);
 
 
-
+  numOrderModal.innerHTML = numeroOrdine;
 
 
   let URLORDER = `http://localhost:8080/api/ordini/utente/${idUtente}/truck/${idTruck}`;
@@ -361,7 +370,7 @@ async function inviaOrdine() {
 
   nuovoOrdine = new Ordine(
     dataIt(dataOggi),
-    numOrder,
+    numeroOrdine,
     totaleParsato,
     prodottiOrdine,
     idUtente,
