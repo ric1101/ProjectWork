@@ -41,44 +41,109 @@ paga.addEventListener("click", function (event) {
   
 });
 
-let user = document.querySelector(".user");
-let carrello = document.querySelector(".carrello");
-let logout = document.querySelector(".logout");
-let login = document.querySelector(".login");
+let user = document.querySelector('.user');
+let carrello = document.querySelector('.carrello');
+let logout = document.querySelector('.logout');
+let login = document.querySelector('.login');
+let admin = document.querySelector('.admin');
 
 function logged() {
-  let getIdUtente = localStorage.getItem("idUtente");
+
+  let getIdUtente = localStorage.getItem('idUtente');
+
   if (getIdUtente != null) {
     console.log(getIdUtente);
-    user.classList.remove("d-none");
-    user.classList.add("d-block");
-    carrello.classList.remove("d-none");
-    carrello.classList.add("d-block");
-    logout.classList.remove("d-none");
-    logout.classList.add("d-block");
-    login.classList.add("d-none");
+    user.classList.remove('d-none');
+    user.classList.add('d-block');
+    carrello.classList.remove('d-none');
+    carrello.classList.add('d-block');
+    logout.classList.remove('d-none');
+    logout.classList.add('d-block');
+    login.classList.add('d-none');
+
   } else {
     console.log(55);
-    user.classList.add("d-none");
-    carrello.classList.add("d-none");
-    logout.classList.add("d-none");
-    login.classList.remove("d-none");
-    login.classList.add("d-block");
+    user.classList.add('d-none');
+    carrello.classList.add('d-none');
+    logout.classList.add('d-none');
+    login.classList.remove('d-none');
+    login.classList.add('d-block');
   }
+
 }
-logged();
+
 
 function logOut() {
-  localStorage.removeItem("idUtente");
+  localStorage.removeItem('idUtente');
   localStorage.removeItem('arrayIdOggetto');
   localStorage.removeItem('arrayId');
   localStorage.removeItem('totaleCarrello');
-  window.location.href = 'index.html';
-  console.log("ciao");
-  logged();
+  
+  let ruolo = localStorage.getItem('ruolo');
+  console.log(ruolo);
+  if (ruolo === "USER") {
+    console.log('si');
+    logged();
+  } else if (ruolo === "ADMIN") {
+    loggedAdmin();
+  }
+  localStorage.removeItem('ruolo');
 }
 
-logout.addEventListener("click", logOut);
+logout.addEventListener('click', logOut);
+let ruolo = "";
+
+function ottieniRuolo() {
+
+  let idUtente = localStorage.getItem('idUtente');
+
+  if (idUtente !== null) {
+
+    // fetch(`http://localhost:8080/api/utenti/${idUtente}`)
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     console.log(data.ruolo);
+
+    //     ruolo = data.ruolo;
+    //     localStorage.setItem('ruolo', ruolo);
+
+
+    //     console.log(ruolo);
+    let ruolo = localStorage.getItem('ruolo');
+        if (ruolo === "USER") {
+          console.log('si');
+          logged();
+        } else if (ruolo === "ADMIN") {
+          loggedAdmin();
+        }
+      }/*)*/;
+  }
+
+// }
+ottieniRuolo();
+function loggedAdmin() {
+  let getIdUtente = localStorage.getItem('idUtente');
+
+  if (getIdUtente != null) {
+    console.log(getIdUtente);
+    user.classList.remove('d-none');
+    user.classList.add('d-block');
+    admin.classList.remove('d-none');
+    admin.classList.add('d-block');
+    logout.classList.remove('d-none');
+    logout.classList.add('d-block');
+    login.classList.add('d-none');
+
+  } else {
+    console.log(55);
+    user.classList.add('d-none');
+    logout.classList.add('d-none');
+    admin.classList.add('d-none');
+    login.classList.remove('d-none');
+    login.classList.add('d-block');
+  }
+
+}
 
 let arrayCarrello = [];
 let numeroArticoli = document.querySelector('#numeroArticoli');

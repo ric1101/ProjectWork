@@ -1,9 +1,3 @@
-let user = document.querySelector('.user');
-let carrello = document.querySelector('.carrello');
-let logout = document.querySelector('.logout');
-let login = document.querySelector('.login');
-
-
 let nomeCognome = document.querySelector('.nomeCognome');
 let nome = document.querySelector('.nome');
 let cognome = document.querySelector('.cognome');
@@ -29,9 +23,18 @@ function userView() {
     });
 
 }
+userView();
+
+let user = document.querySelector('.user');
+let carrello = document.querySelector('.carrello');
+let logout = document.querySelector('.logout');
+let login = document.querySelector('.login');
+let admin = document.querySelector('.admin');
+
 function logged() {
 
   let getIdUtente = localStorage.getItem('idUtente');
+
   if (getIdUtente != null) {
     console.log(getIdUtente);
     user.classList.remove('d-none');
@@ -41,7 +44,7 @@ function logged() {
     logout.classList.remove('d-none');
     logout.classList.add('d-block');
     login.classList.add('d-none');
-    userView();
+
   } else {
     console.log(55);
     user.classList.add('d-none');
@@ -49,22 +52,82 @@ function logged() {
     logout.classList.add('d-none');
     login.classList.remove('d-none');
     login.classList.add('d-block');
-    window.location.href = 'index.html';
   }
 
 }
-logged();
+
 
 function logOut() {
   localStorage.removeItem('idUtente');
   localStorage.removeItem('arrayIdOggetto');
   localStorage.removeItem('arrayId');
   localStorage.removeItem('totaleCarrello');
-  console.log('ciao');
-  logged();
+  
+  let ruolo = localStorage.getItem('ruolo');
+  console.log(ruolo);
+  if (ruolo === "USER") {
+    console.log('si');
+    logged();
+  } else if (ruolo === "ADMIN") {
+    loggedAdmin();
+  }
+  localStorage.removeItem('ruolo');
 }
 
 logout.addEventListener('click', logOut);
+let ruolo = "";
+
+function ottieniRuolo() {
+
+  let idUtente = localStorage.getItem('idUtente');
+
+  if (idUtente !== null) {
+
+    // fetch(`http://localhost:8080/api/utenti/${idUtente}`)
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     console.log(data.ruolo);
+
+    //     ruolo = data.ruolo;
+    //     localStorage.setItem('ruolo', ruolo);
+
+
+    //     console.log(ruolo);
+    let ruolo = localStorage.getItem('ruolo');
+        if (ruolo === "USER") {
+          console.log('si');
+          logged();
+        } else if (ruolo === "ADMIN") {
+          loggedAdmin();
+        }
+      }/*)*/;
+  }
+
+// }
+ottieniRuolo();
+function loggedAdmin() {
+  let getIdUtente = localStorage.getItem('idUtente');
+
+  if (getIdUtente != null) {
+    console.log(getIdUtente);
+    user.classList.remove('d-none');
+    user.classList.add('d-block');
+    admin.classList.remove('d-none');
+    admin.classList.add('d-block');
+    logout.classList.remove('d-none');
+    logout.classList.add('d-block');
+    login.classList.add('d-none');
+
+  } else {
+    console.log(55);
+    user.classList.add('d-none');
+    logout.classList.add('d-none');
+    admin.classList.add('d-none');
+    login.classList.remove('d-none');
+    login.classList.add('d-block');
+  }
+
+}
 
 let arrayCarrello = [];
 let numeroArticoli = document.querySelector('#numeroArticoli');

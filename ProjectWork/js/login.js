@@ -47,10 +47,6 @@ function login() {
         .then(response => {
             console.log(response);
 
-
-
-
-
             if (response.ok) {
                 fetch(`http://localhost:8080/api/utenti/email/${email.value}`)
 

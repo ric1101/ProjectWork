@@ -72,9 +72,16 @@ function logOut() {
   localStorage.removeItem('arrayIdOggetto');
   localStorage.removeItem('arrayId');
   localStorage.removeItem('totaleCarrello');
-  // localStorage.removeItem('ruolo', ruolo);
-  console.log('ciao');
-  logged();
+  
+  let ruolo = localStorage.getItem('ruolo');
+  console.log(ruolo);
+  if (ruolo === "USER") {
+    console.log('si');
+    logged();
+  } else if (ruolo === "ADMIN") {
+    loggedAdmin();
+  }
+  localStorage.removeItem('ruolo');
 }
 
 logout.addEventListener('click', logOut);
@@ -109,24 +116,27 @@ function ottieniRuolo() {
 
   let idUtente = localStorage.getItem('idUtente');
 
+  if (idUtente !== null) {
 
-  fetch(`http://localhost:8080/api/utenti/${idUtente}`)
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data.ruolo);
+    fetch(`http://localhost:8080/api/utenti/${idUtente}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data.ruolo);
 
-      ruolo = data.ruolo;
-      localStorage.setItem('ruolo', ruolo);
-    
-    
-    console.log(ruolo);
-  if (ruolo === "USER") {
-    console.log('si');
-    logged();
-  } else if (ruolo === "ADMIN") {
-    loggedAdmin();
+        ruolo = data.ruolo;
+        localStorage.setItem('ruolo', ruolo);
+
+
+        console.log(ruolo);
+        let ruoloLocale = localStorage.getItem('ruolo');
+        if (ruoloLocale === "USER") {
+          console.log('si');
+          logged();
+        } else if (ruoloLocale === "ADMIN") {
+          loggedAdmin();
+        }
+      });
   }
-});
 
 }
 ottieniRuolo();
