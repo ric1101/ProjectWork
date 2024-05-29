@@ -1,20 +1,39 @@
-@media screen and (max-width:1100px){
-    
-    .container-foto {
-        display: none;
-    
-    }
+@media screen and (max-width:1100px) {
+
+  .container-foto {
+    display: none;
+
+  }
 }
 
 a {
-    text-decoration: none;
-  }
+  text-decoration: none;
+}
 
-  a:hover {
-    text-decoration: none;
-  }
+a:hover {
+  text-decoration: none;
+}
 
-  .container-logo {
-    background-color: #314d4d;
-    border-radius: 12px;
-  }
+.container-logo {
+  background-color: #314d4d;
+  border-radius: 12px;
+}
+
+
+
+
+
+
+
+
+.valido:focus {
+  border: 2px solid green;
+  border-color: #64ff69;
+  box-shadow: 0 0 0 .08rem rgb(46 255 0 / 75%);
+}
+
+.nonValido:focus {
+  border: 2px solid red;
+  border-color: red;
+  box-shadow: 0 0 0 .08rem rgb(255 0 0 / 76%);
+}

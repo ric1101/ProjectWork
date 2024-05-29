@@ -70,7 +70,7 @@
       <div class="col-md-6">
         <label for="validationCustom01" class="form-label">Nome</label>
         <input type="text" class="form-control richiesti" id="validationCustom01" placeholder="Nome" aria-label="Nome"
-          maxLength="58" required>
+          maxLength="30" required>
       </div>
       <div class="col-md-6">
         <label for="validationCustom02" class="form-label">Cognome</label>
@@ -88,16 +88,17 @@
 
         <div class="col-md-6">
           <label for="validationCustom08" class="form-label">Numero della carta</label>
-          <input type="text" class="form-control richiesti" id="validationCustom08" maxlength="16"
+          <input type="text" class="form-control richiesti" id="validationCustom08" maxlength="19"
             placeholder="Numero della carta" required>
           <div class="invalidNumber text-danger">
 
           </div>
         </div>
 
-        <div class="col-md-3">
-          <label for="validationCustom09" class="form-label">Scadenza</label>
-          <input type="text" class="form-control richiesti" id="validationCustom09" placeholder="MM/YY" required>
+        <div class="col-md-4">
+          <label for="validationCustom09" class="form-label">Scadenza(MM/YY)</label>
+          <input type="text" class="form-control richiesti" id="validationCustom09" placeholder="MM/YY" maxlength="5"
+            required>
           <div class="invalidScadenza text-danger">
 
           </div>
@@ -105,12 +106,13 @@
 
         <div class="col-md-3">
           <label for="validationCustom10" class="form-label">CVV</label>
-          <input type="number" class="form-control richiesti" id="validationCustom10" placeholder="***" required>
+          <input type="text" class="form-control richiesti" id="validationCustom10" maxlength="3" placeholder="***"
+            required>
           <div class="invalidCvv text-danger">
 
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-5">
           <div class="form-check">
             <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked="" required>
             <label class="form-check-label" for="credit">Carta di Credito</label>
