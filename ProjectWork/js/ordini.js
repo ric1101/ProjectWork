@@ -16,6 +16,8 @@ fetch(API + id)
     console.log(data.ordini)
     console.log(data.ordini[0].data_ordine)
 
+    data.ordini.sort((a, b) => b.numero_ordine - a.numero_ordine);
+
     stampaOrdine(data.ordini)
   });
 
@@ -100,7 +102,7 @@ function logOut() {
   localStorage.removeItem('arrayIdOggetto');
   localStorage.removeItem('arrayId');
   localStorage.removeItem('totaleCarrello');
-  
+
   let ruolo = localStorage.getItem('ruolo');
   console.log(ruolo);
   if (ruolo === "USER") {
@@ -132,14 +134,14 @@ function ottieniRuolo() {
 
     //     console.log(ruolo);
     let ruolo = localStorage.getItem('ruolo');
-        if (ruolo === "USER") {
-          console.log('si');
-          logged();
-        } else if (ruolo === "ADMIN") {
-          loggedAdmin();
-        }
-      }/*)*/;
-  }
+    if (ruolo === "USER") {
+      console.log('si');
+      logged();
+    } else if (ruolo === "ADMIN") {
+      loggedAdmin();
+    }
+  }/*)*/;
+}
 
 // }
 ottieniRuolo();
@@ -173,21 +175,21 @@ let numeroArticoli = document.querySelector('#numeroArticoli');
 let numProdotti = 0;
 
 function contoCarrello() {
-    console.log(numProdotti);
+  console.log(numProdotti);
 
-    arrayCarrello = JSON.parse(localStorage.getItem('arrayId'));
-    console.log(arrayCarrello);
+  arrayCarrello = JSON.parse(localStorage.getItem('arrayId'));
+  console.log(arrayCarrello);
 
-    if (arrayCarrello !== null) {
+  if (arrayCarrello !== null) {
 
-        numProdotti = arrayCarrello.length;
-    }
-    console.log(numProdotti);
-    numeroArticoli.innerHTML = numProdotti;
+    numProdotti = arrayCarrello.length;
+  }
+  console.log(numProdotti);
+  numeroArticoli.innerHTML = numProdotti;
 
-    if (numProdotti == 0) {
-        numeroArticoli.innerHTML = null;
-    }
+  if (numProdotti == 0) {
+    numeroArticoli.innerHTML = null;
+  }
 
 }
 contoCarrello();
