@@ -5,15 +5,29 @@ let paga = document.querySelector(".paga");
 
 
 function verificaInserimenti() {
-  richiesti.forEach((element) => {
-    if (element.value == "") {
-      console.log(element.value);
-      modal.classList.add("d-none");
 
-    } else {
-      pagato();
-    }
-  });
+  let inputNome = document.getElementById("validationCustom01");
+  let inputCognome = document.getElementById("validationCustom02");
+  let inputTitolare = document.getElementById("validationCustom07");
+  let inputNumero = document.getElementById("validationCustom08");
+  let inputScadenza = document.getElementById("validationCustom09");
+  let inputCvv = document.getElementById("validationCustom10");
+
+
+
+  if (inputNome.value.length === 0 ||
+    inputCognome.value.length === 0 ||
+    inputTitolare.value.length === 0 ||
+    inputNumero.value.length === 0 ||
+    inputScadenza.value.length === 0 ||
+    inputCvv.value.length === 0
+  ) {
+
+    modal.classList.add("d-none");
+
+  } else {
+    pagato();
+  }
 }
 
 console.log(richiesti);
@@ -22,9 +36,12 @@ function pagato() {
   let scadenza = document.querySelector('#validationCustom09');
   let cvv = document.querySelector('#validationCustom10');
   let invalidNumber = document.querySelector('.invalidNumber');
-  let invalidScandenza = document.querySelector('.invalidScandenza');
+  let invalidScandenza = document.querySelector('.invalidScadenza');
   let invalidCvv = document.querySelector('.invalidCvv');
   console.log("Funzione pagato chiamata");
+
+
+
 
 
   if (numCarta.value.length !== 16) {
@@ -40,8 +57,16 @@ function pagato() {
     modal.classList.add("d-none");
 
   } else {
+
+    invalidNumber.innerHTML = '';
+    invalidScandenza.innerHTML = '';
+    invalidCvv.innerHTML = '';
+
+
+    modal.classList.remove("d-none");
     modal.classList.add("d-block");
     inviaOrdine();
+    console.log("Ordine inviato");
 
   }
 

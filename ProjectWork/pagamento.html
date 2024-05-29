@@ -88,10 +88,10 @@
 
         <div class="col-md-6">
           <label for="validationCustom08" class="form-label">Numero della carta</label>
-          <input type="number" class="form-control richiesti" id="validationCustom08" placeholder="Numero della carta"
-            required>
+          <input type="text" pattern="\d{4}-\d{4}-\d{4}-\d{4}" class="form-control richiesti" id="validationCustom08"
+            maxlength="19" placeholder="Numero della carta" required>
           <div class="invalidNumber text-danger">
-            
+
           </div>
         </div>
 
@@ -99,7 +99,7 @@
           <label for="validationCustom09" class="form-label">Scadenza</label>
           <input type="text" class="form-control richiesti" id="validationCustom09" placeholder="MM/YY" required>
           <div class="invalidScadenza text-danger">
-            
+
           </div>
         </div>
 
@@ -107,7 +107,7 @@
           <label for="validationCustom10" class="form-label">CVV</label>
           <input type="number" class="form-control richiesti" id="validationCustom10" placeholder="***" required>
           <div class="invalidCvv text-danger">
-            
+
           </div>
         </div>
         <div class="col-md-6">
