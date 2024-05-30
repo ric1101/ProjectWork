@@ -13,11 +13,25 @@ function userView() {
   fetch(URLT)
     .then((res) => res.json())
     .then((data) => {
+
+      //FUNZIONE DATA ITALIANA
+      function dataIt(dataSQL) {
+        let data = new Date(dataSQL);
+
+        let giorno = String(data.getDate()).padStart(2, "0");
+        let mese = String(data.getMonth() + 1).padStart(2, "0");
+        let anno = String(data.getFullYear());
+
+        let dataFormattata = `${giorno}-${mese}-${anno}`
+
+        return dataFormattata;
+      }
+
       console.log(data);
       nomeCognome.innerHTML = data.nome + ' ' + data.cognome;
       nome.innerHTML = data.nome;
       cognome.innerHTML = data.cognome;
-      dataNascita.innerHTML = data.data_nascita;
+      dataNascita.innerHTML = dataIt(data.data_nascita);
       role.innerHTML = data.ruolo;
       email.innerHTML = data.email;
     });
@@ -62,7 +76,7 @@ function logOut() {
   localStorage.removeItem('arrayIdOggetto');
   localStorage.removeItem('arrayId');
   localStorage.removeItem('totaleCarrello');
-  
+
   let ruolo = localStorage.getItem('ruolo');
   console.log(ruolo);
   if (ruolo === "USER") {
@@ -94,14 +108,14 @@ function ottieniRuolo() {
 
     //     console.log(ruolo);
     let ruolo = localStorage.getItem('ruolo');
-        if (ruolo === "USER") {
-          console.log('si');
-          logged();
-        } else if (ruolo === "ADMIN") {
-          loggedAdmin();
-        }
-      }/*)*/;
-  }
+    if (ruolo === "USER") {
+      console.log('si');
+      logged();
+    } else if (ruolo === "ADMIN") {
+      loggedAdmin();
+    }
+  }/*)*/;
+}
 
 // }
 ottieniRuolo();
@@ -134,21 +148,21 @@ let numeroArticoli = document.querySelector('#numeroArticoli');
 let numProdotti = 0;
 
 function contoCarrello() {
-    console.log(numProdotti);
+  console.log(numProdotti);
 
-    arrayCarrello = JSON.parse(localStorage.getItem('arrayId'));
-    console.log(arrayCarrello);
+  arrayCarrello = JSON.parse(localStorage.getItem('arrayId'));
+  console.log(arrayCarrello);
 
-    if (arrayCarrello !== null) {
+  if (arrayCarrello !== null) {
 
-        numProdotti = arrayCarrello.length;
-    }
-    console.log(numProdotti);
-    numeroArticoli.innerHTML = numProdotti;
+    numProdotti = arrayCarrello.length;
+  }
+  console.log(numProdotti);
+  numeroArticoli.innerHTML = numProdotti;
 
-    if (numProdotti == 0) {
-        numeroArticoli.innerHTML = null;
-    }
+  if (numProdotti == 0) {
+    numeroArticoli.innerHTML = null;
+  }
 
 }
 contoCarrello();
