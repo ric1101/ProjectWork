@@ -1,0 +1,28 @@
+a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  .btnAcquista:focus {
+    background-color: #009943;
+  }
+
+  .card-button {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    width: 50%;
+    background-color: #FFCC00;
+    color: #000000;
+    border-radius: 8px 8px 8px 8px;
+}
+
+.card-button:hover {
+    text-decoration: none;
+    background-color: #FFCC00;
+    color: #fff;
+
+}

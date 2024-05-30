@@ -221,20 +221,22 @@ function stampaTruck(piatti) {
 
     if (portata === "SNACK" && snack >= 1) {
       let snackDiv = document.querySelector(".snack");
-      snackDiv.innerHTML += `<div class="col-md-3 mt-4">
+      snackDiv.innerHTML += `<div class="col-md-3 mt-4" >
           <div class="card-sl active reveal fade-left">
-              <div class="card-image text-center">
-                  <img src="${element.immagine}" />
-              </div>
-              <div class="card-heading">
-                  ${element.nome}
-              </div>
-              <div class="card-text">
-              ${element.descrizione}
-              </div>
-              <div class="card-text">
-              ${element.prezzoListino.toFixed(2)} €
-            </div>
+          <div class="food" data-id-prod="${element.id}">
+          <div class="card-image text-center">
+              <img src="${element.immagine}" />
+          </div>
+          <div class="card-heading">
+              ${element.nome}
+          </div>
+          <div class="card-text">
+           ${element.descrizione}
+          </div>
+          <div class="card-text">
+          ${element.prezzoListino.toFixed(2)} €
+        </div>
+      </div>
                 <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Aggiungi al carrello</a>
             </div>
         </div>`;
@@ -243,18 +245,20 @@ function stampaTruck(piatti) {
       let paninoDiv = document.querySelector(".panini");
       paninoDiv.innerHTML += `<div class="col-md-3 mt-4">
                  <div class="card-sl active reveal fade-top">
-                     <div class="card-image text-center">
-                         <img src="${element.immagine}" />
-                     </div>
-                     <div class="card-heading">
-                         ${element.nome}
-                     </div>
-                     <div class="card-text">
-                      ${element.descrizione}
-                     </div>
-                     <div class="card-text">
-                     ${element.prezzoListino.toFixed(2)} €
-                   </div>
+                 <div class="food" data-id-prod="${element.id}">
+                 <div class="card-image text-center">
+                     <img src="${element.immagine}" />
+                 </div>
+                 <div class="card-heading">
+                     ${element.nome}
+                 </div>
+                 <div class="card-text">
+                  ${element.descrizione}
+                 </div>
+                 <div class="card-text">
+                 ${element.prezzoListino.toFixed(2)} €
+               </div>
+             </div>
                        <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Aggiungi al carrello</a>
                    </div>
                </div>`;
@@ -262,18 +266,20 @@ function stampaTruck(piatti) {
       let bevandaDiv = document.querySelector(".bevanda");
       bevandaDiv.innerHTML += `<div class="col-md-3 mt-4">
                  <div class="card-sl active reveal fade-left">
-                     <div class="card-image text-center">
-                         <img src="${element.immagine}" />
-                     </div>
-                     <div class="card-heading">
-                         ${element.nome}
-                     </div>
-                     <div class="card-text">
-                      ${element.descrizione}
-                     </div>
-                     <div class="card-text">
-                     ${element.prezzoListino.toFixed(2)} €
-                   </div>
+                 <div class="food" data-id-prod="${element.id}">
+                 <div class="card-image text-center">
+                     <img src="${element.immagine}" />
+                 </div>
+                 <div class="card-heading">
+                     ${element.nome}
+                 </div>
+                 <div class="card-text">
+                  ${element.descrizione}
+                 </div>
+                 <div class="card-text">
+                 ${element.prezzoListino.toFixed(2)} €
+               </div>
+             </div>
                        <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Aggiungi al carrello</a>
                    </div>
                </div>`;
@@ -281,18 +287,20 @@ function stampaTruck(piatti) {
       let dolceDiv = document.querySelector(".dolce");
       dolceDiv.innerHTML += `<div class="col-md-3 mt-4">
                  <div class="card-sl active reveal fade-top">
-                     <div class="card-image text-center">
-                         <img src="${element.immagine}" />
-                     </div>
-                     <div class="card-heading">
-                         ${element.nome}
-                     </div>
-                     <div class="card-text">
-                      ${element.descrizione}
-                     </div>
-                     <div class="card-text">
-                     ${element.prezzoListino.toFixed(2)} €
-                   </div>
+                 <div class="food" data-id-prod="${element.id}">
+                 <div class="card-image text-center">
+                     <img src="${element.immagine}" />
+                 </div>
+                 <div class="card-heading">
+                     ${element.nome}
+                 </div>
+                 <div class="card-text">
+                  ${element.descrizione}
+                 </div>
+                 <div class="card-text">
+                 ${element.prezzoListino.toFixed(2)} €
+               </div>
+             </div>
                        <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Aggiungi al carrello</a>
                    </div>
                </div>`;
@@ -300,18 +308,20 @@ function stampaTruck(piatti) {
       let specialitaDiv = document.querySelector(".specialita");
       specialitaDiv.innerHTML += `<div class="col-md-3 mt-4 active reveal fade-left">
                  <div class="card-sl">
-                     <div class="card-image text-center">
-                         <img src="${element.immagine}" />
-                     </div>
-                     <div class="card-heading">
-                         ${element.nome}
-                     </div>
-                     <div class="card-text">
-                      ${element.descrizione}
-                     </div>
-                     <div class="card-text">
-                     ${element.prezzoListino.toFixed(2)} €
-                   </div>
+                 <div class="food" data-id-prod="${element.id}">
+                 <div class="card-image text-center">
+                     <img src="${element.immagine}" />
+                 </div>
+                 <div class="card-heading">
+                     ${element.nome}
+                 </div>
+                 <div class="card-text">
+                  ${element.descrizione}
+                 </div>
+                 <div class="card-text">
+                 ${element.prezzoListino.toFixed(2)} €
+               </div>
+             </div>
                        <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Aggiungi al carrello</a>
                    </div>
                </div>`;
@@ -319,18 +329,20 @@ function stampaTruck(piatti) {
       let contornoDiv = document.querySelector(".contorno");
       contornoDiv.innerHTML += `<div class="col-md-3 mt-4 active reveal fade-top">
                  <div class="card-sl">
-                     <div class="card-image text-center">
-                         <img src="${element.immagine}" />
-                     </div>
-                     <div class="card-heading">
-                         ${element.nome}
-                     </div>
-                     <div class="card-text">
-                      ${element.descrizione}
-                     </div>
-                     <div class="card-text">
-                     ${element.prezzoListino.toFixed(2)} €
-                   </div>
+                 <div class="food" data-id-prod="${element.id}">
+                 <div class="card-image text-center">
+                     <img src="${element.immagine}" />
+                 </div>
+                 <div class="card-heading">
+                     ${element.nome}
+                 </div>
+                 <div class="card-text">
+                  ${element.descrizione}
+                 </div>
+                 <div class="card-text">
+                 ${element.prezzoListino.toFixed(2)} €
+               </div>
+             </div>
                        <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Aggiungi al carrello</a>
                    </div>
                </div>`;
@@ -338,37 +350,41 @@ function stampaTruck(piatti) {
       let frittoDiv = document.querySelector(".fritto");
       frittoDiv.innerHTML += `<div class="col-md-3 mt-4">
                  <div class="card-sl active reveal fade-left">
-                     <div class="card-image text-center">
-                         <img src="${element.immagine}" />
-                     </div>
-                     <div class="card-heading">
-                         ${element.nome}
-                     </div>
-                     <div class="card-text">
-                      ${element.descrizione}
-                     </div>
-                     <div class="card-text">
-                     ${element.prezzoListino.toFixed(2)} €
-                   </div>
+                 <div class="food" data-id-prod="${element.id}">
+                 <div class="card-image text-center">
+                     <img src="${element.immagine}" />
+                 </div>
+                 <div class="card-heading">
+                     ${element.nome}
+                 </div>
+                 <div class="card-text">
+                  ${element.descrizione}
+                 </div>
+                 <div class="card-text">
+                 ${element.prezzoListino.toFixed(2)} €
+               </div>
+             </div>
                        <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Aggiungi al carrello</a>
                    </div>
                </div>`;
     } else if (portata === "KEBAB" && kebab >= 1) {
       let kebabDiv = document.querySelector(".kebab");
-      kebabDiv.innerHTML += `<div class="col-md-3 mt-4 ">
+      kebabDiv.innerHTML += `<div class="col-md-3 mt-4">
                  <div class="card-sl active reveal fade-left">
-                     <div class="card-image text-center">
-                         <img src="${element.immagine}" />
-                     </div>
-                     <div class="card-heading">
-                         ${element.nome}
-                     </div>
-                     <div class="card-text">
-                      ${element.descrizione}
-                     </div>
-                     <div class="card-text">
-                     ${element.prezzoListino.toFixed(2)} €
-                   </div>
+                 <div class="food" data-id-prod="${element.id}">
+                 <div class="card-image text-center">
+                     <img src="${element.immagine}" />
+                 </div>
+                 <div class="card-heading">
+                     ${element.nome}
+                 </div>
+                 <div class="card-text">
+                  ${element.descrizione}
+                 </div>
+                 <div class="card-text">
+                 ${element.prezzoListino.toFixed(2)} €
+               </div>
+             </div>
                        <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Aggiungi al carrello</a>
                    </div>
                </div>`;
@@ -376,18 +392,20 @@ function stampaTruck(piatti) {
       let pokeDiv = document.querySelector(".poke");
       pokeDiv.innerHTML += `<div class="col-md-3 mt-4">
                  <div class="card-sl active reveal fade-top">
-                     <div class="card-image text-center">
-                         <img src="${element.immagine}" />
-                     </div>
-                     <div class="card-heading">
-                         ${element.nome}
-                     </div>
-                     <div class="card-text">
-                      ${element.descrizione}
-                     </div>
-                     <div class="card-text">
-                     ${element.prezzoListino.toFixed(2)} €
-                   </div>
+                 <div class="food" data-id-prod="${element.id}">
+                 <div class="card-image text-center">
+                     <img src="${element.immagine}" />
+                 </div>
+                 <div class="card-heading">
+                     ${element.nome}
+                 </div>
+                 <div class="card-text">
+                  ${element.descrizione}
+                 </div>
+                 <div class="card-text">
+                 ${element.prezzoListino.toFixed(2)} €
+               </div>
+             </div>
                        <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Aggiungi al carrello</a>
                    </div>
                </div>`;
@@ -395,18 +413,20 @@ function stampaTruck(piatti) {
       let nigDiv = document.querySelector(".nigiri");
       nigDiv.innerHTML += `<div class="col-md-3 mt-4">
                  <div class="card-sl active reveal fade-top">
-                     <div class="card-image text-center">
-                         <img src="${element.immagine}" />
-                     </div>
-                     <div class="card-heading">
-                         ${element.nome}
-                     </div>
-                     <div class="card-text">
-                      ${element.descrizione}
-                     </div>
-                     <div class="card-text">
-                     ${element.prezzoListino.toFixed(2)} €
-                   </div>
+                 <div class="food" data-id-prod="${element.id}">
+                 <div class="card-image text-center">
+                     <img src="${element.immagine}" />
+                 </div>
+                 <div class="card-heading">
+                     ${element.nome}
+                 </div>
+                 <div class="card-text">
+                  ${element.descrizione}
+                 </div>
+                 <div class="card-text">
+                 ${element.prezzoListino.toFixed(2)} €
+               </div>
+             </div>
                        <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Aggiungi al carrello</a>
                    </div>
                </div>`;
@@ -414,18 +434,20 @@ function stampaTruck(piatti) {
       let gunDiv = document.querySelector(".gunkan");
       gunDiv.innerHTML += `<div class="col-md-3 mt-4">
                  <div class="card-sl active reveal fade-top">
-                     <div class="card-image text-center">
-                         <img src="${element.immagine}" />
-                     </div>
-                     <div class="card-heading">
-                         ${element.nome}
-                     </div>
-                     <div class="card-text">
-                      ${element.descrizione}
-                     </div>
-                     <div class="card-text">
-                     ${element.prezzoListino.toFixed(2)} €
-                   </div>
+                 <div class="food" data-id-prod="${element.id}">
+                 <div class="card-image text-center">
+                     <img src="${element.immagine}" />
+                 </div>
+                 <div class="card-heading">
+                     ${element.nome}
+                 </div>
+                 <div class="card-text">
+                  ${element.descrizione}
+                 </div>
+                 <div class="card-text">
+                 ${element.prezzoListino.toFixed(2)} €
+               </div>
+             </div>
                        <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Aggiungi al carrello</a>
                    </div>
                </div>`;
@@ -433,18 +455,20 @@ function stampaTruck(piatti) {
       let hosDiv = document.querySelector(".hosomaki");
       hosDiv.innerHTML += `<div class="col-md-3 mt-4">
                  <div class="card-sl active reveal fade-top">
-                     <div class="card-image text-center">
-                         <img src="${element.immagine}" />
-                     </div>
-                     <div class="card-heading">
-                         ${element.nome}
-                     </div>
-                     <div class="card-text">
-                      ${element.descrizione}
-                     </div>
-                     <div class="card-text">
-                     ${element.prezzoListino.toFixed(2)} €
-                   </div>
+                 <div class="food" data-id-prod="${element.id}">
+                 <div class="card-image text-center">
+                     <img src="${element.immagine}" />
+                 </div>
+                 <div class="card-heading">
+                     ${element.nome}
+                 </div>
+                 <div class="card-text">
+                  ${element.descrizione}
+                 </div>
+                 <div class="card-text">
+                 ${element.prezzoListino.toFixed(2)} €
+               </div>
+             </div>
                        <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Aggiungi al carrello</a>
                    </div>
                </div>`;
@@ -452,18 +476,20 @@ function stampaTruck(piatti) {
       let sasDiv = document.querySelector(".sashimi");
       sasDiv.innerHTML += `<div class="col-md-3 mt-4">
                  <div class="card-sl active reveal fade-top">
-                     <div class="card-image text-center">
-                         <img src="${element.immagine}" />
-                     </div>
-                     <div class="card-heading">
-                         ${element.nome}
-                     </div>
-                     <div class="card-text">
-                      ${element.descrizione}
-                     </div>
-                     <div class="card-text">
-                     ${element.prezzoListino.toFixed(2)} €
-                   </div>
+                 <div class="food" data-id-prod="${element.id}">
+                 <div class="card-image text-center">
+                     <img src="${element.immagine}" />
+                 </div>
+                 <div class="card-heading">
+                     ${element.nome}
+                 </div>
+                 <div class="card-text">
+                  ${element.descrizione}
+                 </div>
+                 <div class="card-text">
+                 ${element.prezzoListino.toFixed(2)} €
+               </div>
+             </div>
                        <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Aggiungi al carrello</a>
                    </div>
                </div>`;
@@ -471,18 +497,20 @@ function stampaTruck(piatti) {
       let salDiv = document.querySelector(".salse");
       salDiv.innerHTML += `<div class="col-md-3 mt-4">
                  <div class="card-sl active reveal fade-top">
-                     <div class="card-image text-center">
-                         <img src="${element.immagine}" />
-                     </div>
-                     <div class="card-heading">
-                         ${element.nome}
-                     </div>
-                     <div class="card-text">
-                      ${element.descrizione}
-                     </div>
-                     <div class="card-text">
-                     ${element.prezzoListino.toFixed(2)} €
-                   </div>
+                 <div class="food" data-id-prod="${element.id}">
+                 <div class="card-image text-center">
+                     <img src="${element.immagine}" />
+                 </div>
+                 <div class="card-heading">
+                     ${element.nome}
+                 </div>
+                 <div class="card-text">
+                  ${element.descrizione}
+                 </div>
+                 <div class="card-text">
+                 ${element.prezzoListino.toFixed(2)} €
+               </div>
+             </div>
                        <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Aggiungi al carrello</a>
                    </div>
                </div>`;
@@ -490,18 +518,20 @@ function stampaTruck(piatti) {
       let bianDiv = document.querySelector(".bianche");
       bianDiv.innerHTML += `<div class="col-md-3 mt-4">
                  <div class="card-sl active reveal fade-top">
-                     <div class="card-image text-center">
-                         <img src="${element.immagine}" />
-                     </div>
-                     <div class="card-heading">
-                         ${element.nome}
-                     </div>
-                     <div class="card-text">
-                      ${element.descrizione}
-                     </div>
-                     <div class="card-text">
-                     ${element.prezzoListino.toFixed(2)} €
-                   </div>
+                 <div class="food" data-id-prod="${element.id}">
+                 <div class="card-image text-center">
+                     <img src="${element.immagine}" />
+                 </div>
+                 <div class="card-heading">
+                     ${element.nome}
+                 </div>
+                 <div class="card-text">
+                  ${element.descrizione}
+                 </div>
+                 <div class="card-text">
+                 ${element.prezzoListino.toFixed(2)} €
+               </div>
+             </div>
                        <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Aggiungi al carrello</a>
                    </div>
                </div>`;
@@ -509,25 +539,27 @@ function stampaTruck(piatti) {
       let rosDiv = document.querySelector(".rosse");
       rosDiv.innerHTML += `<div class="col-md-3 mt-4">
                  <div class="card-sl active reveal fade-top">
-                     <div class="card-image text-center">
-                         <img src="${element.immagine}" />
-                     </div>
-                     <div class="card-heading">
-                         ${element.nome}
-                     </div>
-                     <div class="card-text">
-                      ${element.descrizione}
-                     </div>
-                     <div class="card-text">
-                     ${element.prezzoListino.toFixed(2)} €
-                   </div>
-                       <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Aggiungi al carrello</a>
-                   </div>
+                 <div class="food" data-id-prod="${element.id}">
+                 <div class="card-image text-center">
+                     <img src="${element.immagine}" />
+                 </div>
+                 <div class="card-heading">
+                     ${element.nome}
+                 </div>
+                 <div class="card-text">
+                  ${element.descrizione}
+                 </div>
+                 <div class="card-text">
+                 ${element.prezzoListino.toFixed(2)} €
+               </div>
+             </div>
+              <a href="#!" class="card-button btnAcquista" data-id="${element.id}"> Aggiungi al carrello</a>
+              </div>
                </div>`;
     }
   });
   descrizioneBreve();
-
+  inviaPaginaInfoProd();
   let getIdUtente = localStorage.getItem('idUtente');
   let ruolo = localStorage.getItem('ruolo');
 
@@ -739,3 +771,20 @@ function contoCarrello() {
 
 }
 contoCarrello();
+
+
+function inviaPaginaInfoProd() {
+
+  let food = document.querySelectorAll('.food');
+
+  food.forEach(btn => {
+    btn.addEventListener('click', function () {
+      let idProd = btn.getAttribute('data-id-prod');
+
+      localStorage.setItem('idProdDettaglio', idProd);
+      window.location.href = 'info-prodotto.html';
+
+    })
+
+  });
+}
