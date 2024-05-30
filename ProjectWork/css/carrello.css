@@ -1,12 +1,21 @@
 a {
-    text-decoration: none;
-  }
+  text-decoration: none;
+}
 
-  a:hover {
-    text-decoration: none;
-  }
+a:hover {
+  text-decoration: none;
+}
 
-  .container-logo {
-    background-color: #314d4d;
-    border-radius: 12px;
-  }
+.container-logo {
+  background-color: #314d4d;
+  border-radius: 12px;
+}
+
+.over {
+  overflow-x: hidden;
+}
+
+.md-padding {
+  padding-top: 40px !important;
+  padding-bottom: 40px !important;
+}
