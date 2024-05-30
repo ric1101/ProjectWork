@@ -151,3 +151,7 @@ body {
     background-color: #314d4d;
     border-radius: 12px;
   }
+
+  .food:hover {
+    cursor: pointer;
+  }

@@ -27,7 +27,7 @@ function stampa(array) {
  marchio.foodtrucks.forEach(element => {
     if (element.disponibilita == true) {
       
-      all.innerHTML += `<div class="card m-4 col-lg-3 col-md-4 col-sm-6 mb-4 cardTrue" data-id="${element.id}">
+      all.innerHTML += `<div class="card m-4 col-lg-3 col-md-4 col-sm-6 mb-4 cardTrue" data-id="${element.id}" data-nome="${element.nome}">
   <div class="card-body  p-0 ">
   <div class="box-image" style="height: 100%;">
           
@@ -48,7 +48,7 @@ function stampa(array) {
       console.log('vero', element.disponibilita);
     } else {
       console.log('falso', element.disponibilita);
-      all.innerHTML += `<div class="card m-4 col-lg-3 col-md-4 col-sm-6 mb-4" data-id="${element.id}">
+      all.innerHTML += `<div class="card m-4 col-lg-3 col-md-4 col-sm-6 mb-4" data-id="${element.id}" data-nome="${element.nome}">
   <div class="card-body  p-0 ">
   <div class="box-image" style="height: 100%;">
 
@@ -80,8 +80,9 @@ function inviaAlDettaglioTruck() {
   card.forEach(btn => {
     btn.addEventListener('click', function(){
       let id = btn.getAttribute('data-id');
+      let nomeTruck = btn.getAttribute('data-nome');
         console.log(id);
-
+        localStorage.setItem('nome-truck', nomeTruck);
         localStorage.setItem('id-truck', id);
         window.location.href = 'truck.html';
       })
